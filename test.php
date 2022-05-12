@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
          최신버전 Alpha를 이용하고 싶다면 아래 스크립트를 사용 -->
-         <script src="https://cdn.jsdelivr.net/npm/hls.js@alpha"></script> 
+         <!--<script src="https://cdn.jsdelivr.net/npm/hls.js@alpha"></script>--> 
     </head>
     <body>
         <div >
@@ -25,7 +25,9 @@
         
                 
         
-                <div class="Login_menu"> <a href="login.html">Login</a></div>
+                <div class="Login_menu"> 
+                    <a href="login.php">login</a>
+                </div>
 
              
         
