@@ -8,35 +8,33 @@
     <title>Forgot</title>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
+<?php
+    $option = $_GET["option"];
+    
+    echo("
+        <script>
+            alert($option+\"   dsfasdf\");
+        </script>
+    "
+    );
+?>
 <body>
     
     <section class="forgot-form">
-        <h1></h1>
+        <h1>  </h1>
         <div class="bar_logo">
-            <a href="login.html">FORGOT</a>
+            <a href="login.html">Your PassWord</a>
         </div>
         <form action="">
             <div class="forgot-area">
                 <input type="text" name="forgot_id" id="forgot_id"
-                autocomplete="off" required>
-                <label for="forgot_id">NAME</label>
+                autocomplete="off" value="<?= $option?>" required>
+               
             </div>
-            
-            <div class="forgot-area">
-                <input type="text" name="forgot_pw" id="forgot_pw"
-                autocomplete="off" required>
-                <label id="forgot_answer"type="text" onclick='change()'>Email</label>
-            </div>
-
-            <div class="forgot-area">
-                <input type="text" name="forgot_pw" id="forgot_pw"
-                autocomplete="off" required>
-                <label id="forgot_answer"type="text" onclick='change()'>ANSWER</label>
-            </div>
-
+           
                         
            <div class="btn-area">
-               <button type="submit" onclick="location.href='ForgotRecord.html'">Sign in</button>
+               <button ><a href="login.php">Sign in</a></button>
             
            </div>
         </form>
@@ -50,7 +48,7 @@
             
            
            
-        </script>
+               </script>
 
 
 </body>

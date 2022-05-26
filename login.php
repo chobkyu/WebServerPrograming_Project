@@ -38,7 +38,7 @@
     </div>
 
     <div class="caption">
-        <a href="forgot.html">Forgot Password?</a>
+        <a href="forgot.php">Forgot Password?</a>
     </div>
     </section>
     <script> 

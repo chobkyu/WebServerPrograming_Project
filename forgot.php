@@ -11,20 +11,32 @@
 <body>
     
     <section class="forgot-form">
-        <h1>  </h1>
+        <h1></h1>
         <div class="bar_logo">
-            <a href="login.html">Your PassWord</a>
+            <a href="login.html">FORGOT</a>
         </div>
-        <form action="">
+        <form name=forgotId method="post" action="forgotPw.php">
             <div class="forgot-area">
                 <input type="text" name="forgot_id" id="forgot_id"
                 autocomplete="off" required>
-               
+                <label for="forgot_id">NAME</label>
             </div>
-           
+            
+            <div class="forgot-area">
+                <input type="text" name="forgot_email" id="forgot_pw"
+                autocomplete="off" required>
+                <label id="forgot_email"type="text">Email</label>
+            </div>
+
+            <div class="forgot-area">
+                <input type="text" name="forgot_answer" id="forgot_answer"
+                autocomplete="off" required>
+                <label id="forgot_answer" type="text" onclick='change()'>ANSWER</label>
+            </div>
+
                         
            <div class="btn-area">
-               <button type="submit" onclick="location.href='index.html'">Sign in</button>
+               <button type="submit">Sign in</button>
             
            </div>
         </form>
@@ -38,7 +50,7 @@
             
            
            
-               </script>
+        </script>
 
 
 </body>
