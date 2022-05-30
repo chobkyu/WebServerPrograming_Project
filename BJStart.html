@@ -26,6 +26,7 @@
             <nav class = "nav" role="navigation">
                 <ul class="nav__list">
                     <li>
+                        <input id="group-1" type="checkbox" hidden />
                         <label for ="group-1">방송 카테고리</label>
                         <ul class="group-list">
                             <li>게임</li>
@@ -34,10 +35,14 @@
                             <li>기타</li>
                         </ul>
                     </li>
+                    <br>
                     <li>
+                        <input id="group-2" type="checkbox" hidden />
                         <label for="group-2">Category2</label>
                     </li>
+                    <br>
                     <li>
+                        <input id="group-3" type="checkbox" hidden />
                         <label for="group-3">Category2</label>
                     </li>
                 </ul>
@@ -49,62 +54,89 @@
             <div class = "header">
                 <p>BJ이름</p>
             </div>
+           
 
             <!--방송 정보 등록 내용-->
             <div class="contents-body">
 
                 <div class="body-board">
-                    <div class = "board_head">
-                        <p>방송 정보 등록 &nbsp; *</p>
+                        <div class = "board_head">
+                            <p> 방송 정보 등록 &nbsp; *</p>
+                        </div>
+                        <hr>
+
+                        <div class="board_content input_board">
+
+                            <div class="input_part">
+                                <p>방송 제목 입력</p>
+
+                                <div class = "input_plus">
+                                    <div class="inp_right_div">
+                                        <div class="input_part_right inp_default">
+                                            <input type="text">
+                                        </div>
+        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="input_part">
+                                <p>방송정보</p>&nbsp;&nbsp;
+
+                                <div class="input_part">
+                                    <div class="input_right_div">
+                                        <div class="input_part_right inp_default">
+                                            <textarea></textarea>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="input_part">
+                                <p>방송 카테고리</p>
+                                
+                                <select>
+                                    <option>게임</option>
+                                    <option>운동</option>
+                                    <option>기타</option>
+                                </select>
+                            </div>
+                            
+
+                            
+
+                        </div>
+
+                         
+                </div>
+                <br>
+                <div class="body-board">
+                    <div class="board_head">
+                        <p> 사진 등록</p>
                     </div>
                     <hr>
-
-                    <div class="board_content input_board"></div>
-                        <div class="inp_right_div">
-                            <div class="input_part_right inp_default">
-                                <input type="text">
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="input_part">
-                        <p>방송 제목 입력</p>
-
+    
+                    <div class="board_content input_board">
+    
                         <div class="input_part">
-                            <div class="input_right_div">
-                                <div class="input_part_right inp_default">
-                                    <input type = "tel">
+                            <p>썸네일 &nbsp;*</p>
+                            
+                            <div class="input_plus">
+                                <div class="inp_right_div">
+                                    <div class="input_part_right photo_zone"></div>
+                                    <input type="file" id="uploadFile" class="inp_btn">
+                                    <label for="uploadFile" class="btn inp_btn">찾기</label>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
-
-                    
-
-
-
                 </div>
             </div>
 
 
-            <!--
-            <div>
-                <form>
-                    <h4>방송 이름</h4>
-                    <input type="text" placeholder="방송 제목을 입력하세요" id="title" class="bj">
-                    <h4>방송 카테코리</h4>
-                    <select>
-                        <option>게임</option>
-                        <option>운동</option>
-                        <option>기타</option>
-                    </select>
-                    <br>
-                    <button id="start">방송시작</button>
-                </form>
-            </div> --> 
+            
         </div>
 
     </body>
