@@ -11,6 +11,12 @@ body{
     background-size: cover;
 }
 
+body::before{
+    content:"";
+    position: absolute; z-index: 1;
+    top: 0; right: 0; bottom: 0;  left: 0;
+    background-color: rgba(0,0,0,.7);
+}
 
 .login-form{position: relative; z-index: 2;}
 .login-form h1{ 
@@ -36,6 +42,17 @@ body{
     font-size: 18px; color:#fff;
     outline: none;
 }
+.int-area label{
+    position: absolute; left: 10px; top: 15px; 
+    font-size: 18px; color:#999;
+    transition: top .5s ease;
+}
+.int-area label.warning{
+    color: red !important;
+    animation: warning .3s ease;
+    animation-iteration-count: 3;
+}
+
 
 .int-area input:focus + label,
 .int-area input:valid + label {
