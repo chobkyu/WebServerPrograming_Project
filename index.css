@@ -428,3 +428,88 @@ img{
     }
 
 }
+
+.bj{
+    display: block;
+    margin-bottom:3px;
+    padding : 3px;
+    border:1px solid lightgray;
+    border-radius : 3px;
+}
+
+#start{
+    width: 15%;
+    background-color: skyblue;
+    border-color : transparent;
+    color : white;
+}
+
+
+
+
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block 
+  
+}
+li, ul{
+    list-style: none;
+}
+
+.nav-left{
+    background-color: #364153;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 100%;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+.nav-head{
+    width: 250px;
+    height: 162px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 컨텐츠 */
+.contents{
+    position: absolute;
+    left: 250px;
+    top: 80px;
+    width: calc(100% - 250px);
+    height: 100%;
+    box-sizing: border-box;
+}
+
+
+/* 맨 윗상단 메뉴 */
+.header{
+    height: 80px;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+}
+
+/* 컨텐츠 내용 */
+.contents-body{
+    overflow: auto;
+}
+
+.body-board{
+    padding: 30px;
+    box-sizing: border-box;
+}
+.input_board{
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+.board_head{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}

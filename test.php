@@ -25,9 +25,10 @@
         
                 
         
-                <div class="Login_menu"> 
-                    <a href="login.php">login</a>
-                </div>
+                    <div class="Login_menu"> 
+                        <a href="login.php">login</a>
+                    </div>
+                </nav>    
 
              
         
