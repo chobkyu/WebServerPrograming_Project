@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="forgot.css">
+    <link rel="stylesheet" href="login.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgot</title>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -20,13 +20,13 @@
 ?>
 <body>
     
-    <section class="forgot-form">
+    <section class="login-form">
         <h1>  </h1>
         <div class="bar_logo">
             <a href="login.html">Your PassWord</a>
         </div>
         <form action="">
-            <div class="forgot-area">
+            <div class="int-area">
                 <input type="text" name="forgot_id" id="forgot_id"
                 autocomplete="off" value="<?= $option?>" required>
                

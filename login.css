@@ -7,7 +7,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url("tech.jpg") no-repeat center;
+    background: url("https://ifh.cc/g/SrMJhQ.jpg") no-repeat center;
     background-size: cover;
 }
 
@@ -25,8 +25,6 @@ body::before{
     margin-bottom: 60px;
 }
 
-
-
 .int-area{
     width: 400px; position: relative;
     margin-top: 20px;}
@@ -42,17 +40,12 @@ body::before{
     font-size: 18px; color:#fff;
     outline: none;
 }
+
 .int-area label{
     position: absolute; left: 10px; top: 15px; 
     font-size: 18px; color:#999;
     transition: top .5s ease;
 }
-.int-area label.warning{
-    color: red !important;
-    animation: warning .3s ease;
-    animation-iteration-count: 3;
-}
-
 
 .int-area input:focus + label,
 .int-area input:valid + label {
