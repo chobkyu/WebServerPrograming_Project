@@ -55,89 +55,94 @@
                 <p>BJ이름</p>
             </div>
            
-
+            <form name="broad_start" method="post" action="broadStart.php"> 
             <!--방송 정보 등록 내용-->
-            <div class="contents-body">
-
-                <div class="body-board">
-                        <div class = "board_head">
-                            <p> 방송 정보 등록 &nbsp; *</p>
-                        </div>
-                        <hr>
-
-                        <div class="board_content input_board">
-
-                            <div class="input_part">
-                                <p>방송 제목 입력</p>
-
-                                <div class = "input_plus">
-                                    <div class="inp_right_div">
-                                        <div class="input_part_right inp_default">
-                                            <input type="text">
-                                        </div>
-        
-                                    </div>
-                                </div>
+                <div class="contents-body">
+                    
+                    <div class="body-board">
+                            <div class = "board_head" >
+                                <p> 방송 정보 등록 &nbsp; *</p>
                             </div>
-                            
-                            <div class="input_part">
-                                <p>방송정보</p>&nbsp;&nbsp;
+                            <hr>
+
+                            <div class="board_content input_board">
 
                                 <div class="input_part">
-                                    <div class="input_right_div">
-                                        <div class="input_part_right inp_default">
-                                            <textarea></textarea>
+                                    <p>방송 제목 입력</p>
+
+                                    <div class = "input_plus">
+                                        <div class="inp_right_div">
+                                            <div class="input_part_right inp_default">
+                                                <input type="text" name="broadName">
+                                            </div>
+            
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="input_part">
+                                    <p>방송정보</p>&nbsp;&nbsp;
+
+                                    <div class="input_part">
+                                        <div class="input_right_div">
+                                            <div class="input_part_right inp_default">
+                                                <textarea name="broadInfo"></textarea>
+                                            </div>
+
                                         </div>
 
                                     </div>
-
                                 </div>
-                            </div>
 
-                            <div class="input_part">
-                                <p>방송 카테고리</p>
+                                <div class="input_part">
+                                    <p>방송 카테고리</p>
+                                    
+                                    <select name="category">
+                                        <option value="game">게임</option>
+                                        <option value="work">운동</option>
+                                        <option value="other">기타</option>
+                                    </select>
+                                </div>
                                 
-                                <select>
-                                    <option>게임</option>
-                                    <option>운동</option>
-                                    <option>기타</option>
-                                </select>
+
                             </div>
-                            
 
                             
-
-                        </div>
-
-                         
-                </div>
-                <br>
-                <div class="body-board">
-                    <div class="board_head">
-                        <p> 사진 등록</p>
                     </div>
-                    <hr>
-    
-                    <div class="board_content input_board">
-    
-                        <div class="input_part">
-                            <p>썸네일 &nbsp;*</p>
-                            
-                            <div class="input_plus">
-                                <div class="inp_right_div">
-                                    <div class="input_part_right photo_zone"></div>
-                                    <input type="file" id="uploadFile" class="inp_btn">
-                                    <label for="uploadFile" class="btn inp_btn">찾기</label>
+                    <br>
+                    <div class="body-board">
+                        <div class="board_head">
+                            <p> 사진 등록</p>
+                        </div>
+                        <hr>
+        
+                        <div class="board_content input_board">
+        
+                            <div class="input_part">
+                                <p>썸네일 &nbsp;*</p>
+                                
+                                <div class="input_plus">
+                                    <div class="inp_right_div">
+                                        <div class="input_part_right photo_zone"></div>
+                                        <input type="file" id="uploadFile" class="inp_btn">
+                                        <label for="uploadFile" class="btn inp_btn">찾기</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
+                   
+
+                
                 </div>
-            </div>
+                <button class="btn" type="submit">방송시작</button>
+            </form>
 
-
-            
+           
         </div>
 
     </body>
+
+    
 </html>

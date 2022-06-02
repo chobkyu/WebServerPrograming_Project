@@ -2,7 +2,7 @@
     $id=$_POST["id"];
     $pw=$_POST["pw"];
 
-    $con = mysqli_connect("localhost", "root", "", "login");//공백란에 디비 비번 입력 
+    $con = mysqli_connect("localhost", "root", "tjwjd4921!", "login");//공백란에 디비 비번 입력 
     $sql = "select * from mem where id='$id'"; 
     $result = mysqli_query($con, $sql); 
     $num_match = mysqli_num_rows($result); 
@@ -19,7 +19,7 @@
     }
     else{
         session_start( );
-        $_SESSION["userId"] = "id";
+        $_SESSION["userId"] = $id;
 
         echo("
             
