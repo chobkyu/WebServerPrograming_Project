@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<head></head>
+<body>
+<h3>결제창</h3>
+<hr>
+<form>
+<fieldset>
+    <legend>결제 내용</legend>
+    별풍선 개수 : <input type="text" name='textInput' id='textInput' placeholder="최소 100원"/>
+    <select name='selectOption' id='selectOption'>
+        <option value="">직접 입력</option>
+        <option value="100">100</option>
+        <option value="500">500</option>
+        <option value="1000">1000</option>
+        <option value="5000">5000</option>
+        <option value="10000">10000</option>
+    </select>
+</fieldset>
+</form>
+<script>
+    $(function(){
+        var idval = $('#textInput');
+        $('#selectOption').change(function(){
+            var element = $(this).find('option:selected');
+            var myTag = element.attr('value');
+            idval.val(myTag);
+        });
+    });
+</script>
+
+<input type="button" id="naverPayBtn" value="네이버페이 결제">
+<script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
+<script>
+    var oPay = Naver.Pay.create({
+          "mode" : "production", // development or production
+          "clientId": "u86j4ripEt8LRfPGzQ8" // clientId
+    });
+
+    //직접 만드신 네이버페이 결제버튼에 click Event를 할당하세요
+    var elNaverPayBtn = document.getElementById("naverPayBtn");
+    
+    elNaverPayBtn.addEventListener("click", function() {
+        var inputData = document.getElementById("textInput").value;
+        console.log(inputData);
+        if(inputData<100){
+            alert("최소 금액 100원 이상입니다!");
+        }
+        else{
+            oPay.open({
+                "merchantUserKey": "qwer",
+                "merchantPayKey": "1234",
+                "productName": "별풍선",
+                "totalPayAmount": inputData,
+                "taxScopeAmount": inputData,
+                "taxExScopeAmount": "0",
+                "returnUrl": "https://www.google.co.kr/"
+        });
+        }
+    });
+</script>
+</body>
+</html>
