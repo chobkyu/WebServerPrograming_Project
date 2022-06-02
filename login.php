@@ -8,6 +8,30 @@
     <link rel="stylesheet" href="login.css">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
+
+<script>
+    function login(){
+        console.log("log in!!");
+        var userId = document.getElementById("id").value;
+        var userPw = document.getElementById("pw").value;
+
+        console.log(userId);
+        console.log(userPW);
+
+        if(userId=""){
+            alret("아이디를 입력해주세요");
+            return false;
+        }
+        if(userPw=""){
+            alret("비밀번호를 입력해주세요");
+            return false;
+        }
+        
+        alret("로그인이 완료되었습니다.");
+        
+    }    
+</script>
+
 <body>
    
     <section class="login-form">
@@ -29,7 +53,7 @@
         </div>
         
        <div class="btn-area">
-           <button type="submit">LOGIN</button>
+           <button type="submit" onclick="login()">LOGIN</button>
        </div>
     </form>
 
