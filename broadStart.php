@@ -20,7 +20,7 @@
     echo"
         <script>
             alert(\"방송을 시작합니다\");
-            location.href = \"test.php\";
+            location.href = \"test.php?userId=$userId&broadName=$broadName\";
         </script>
     ";
 ?>

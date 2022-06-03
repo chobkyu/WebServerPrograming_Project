@@ -16,8 +16,84 @@
          최신버전 Alpha를 이용하고 싶다면 아래 스크립트를 사용 -->
          <!--<script src="https://cdn.jsdelivr.net/npm/hls.js@alpha"></script>--> 
     </head>
+    <script>
+        var myVideoStream = document.getElementById('myVideo')     // make it a global variable
+        var camCode = 0;
+        var audioCode = 0;
+
+        function getVideo(){
+        navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+        navigator.getMedia({video: true, audio: true},
+                        
+        function(stream) {
+            myVideoStream.srcObject = stream   
+            myVideoStream.play();
+            camCode = 1;
+            audioCode = 1;
+        }, 
+                        
+        function(error) {
+        alert('webcam not working');
+        });
+        }
+
+        getVideo(); //방송 바로 시작
+
+        function breakVideo(){  //캠 끄기
+            navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+            navigator.getMedia({video: false, audio: true},
+                                    
+                function(stream) {
+                    myVideoStream.srcObject = stream   
+                    myVideoStream.remove;
+                    camCode = 0;
+                    
+                }, 
+                                    
+                function(error) {
+                    alert('webcam not working');
+                });
+            }
+
+        function breakAudio(){  //오디오 끄기
+            navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+            navigator.getMedia({video: true, audio: false},
+                            
+            function(stream) {
+                myVideoStream.srcObject = stream   
+                myVideoStream.play();
+                audioCode = 0;
+            }, 
+                            
+            function(error) {
+            alert('webcam not working');
+            });
+        }
+
+        function onoffVideo(){
+            if(camCode==0){
+                getVideo();
+            }
+            else{
+                breakVideo();
+            }
+        }
+
+        function onoffAudio(){
+            if(audioCode==0){
+                getAudio();
+            }
+            else{
+                breakAudio();
+            }
+        }
+    </script>
+    <?php
+        $userId = $_GET["userId"];
+        $broadName = $_GET["broadName"]
+    ?>
     <body>
-        <div >
+        <div>
                 <nav class="prontbar">
                     <div class="bar_logo">
                         <a href="">WebServerProject</a>
@@ -44,9 +120,11 @@
 
             </div>
             <div class = "info">
-                <h1>방송이름</h1>
-                <h4>방송인 이름</h4> 
-                <input type=button value="방송시작" onclick="{getVideo()}"> <!--일단 이거 여기 해놓고 나중에 관리자 페이지로 이동-->
+                <h1><?=$broadName?></h1>
+                <h4><?=$userId?></h4> 
+                
+                <input type=button value="캠 정지" onclick="{onoffVideo()}">
+                <input type=button value="오디오 정지" onclick="{onoffAudio()}">
             </div>
 
            

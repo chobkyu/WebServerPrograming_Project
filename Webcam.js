@@ -14,6 +14,41 @@ navigator.getMedia({video: true, audio: true},
    alert('webcam not working');
 });
 }
+/*
+function breakVideo(){
+  navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+  navigator.getMedia({video: false, audio: true},
+                     
+    function(stream) {
+      myVideoStream.srcObject = stream   
+      myVideoStream.remove;
+  }, 
+                     
+   function(error) {
+     alert('webcam not working');
+  });
+}
+
+
+  function breakAudio(){
+    navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+    navigator.getMedia({video: true, audio: false},
+                       
+      function(stream) {
+        myVideoStream.srcObject = stream   
+        myVideoStream.play();
+    }, 
+                       
+     function(error) {
+       alert('webcam not working');
+    });
+  }
+
+
+*/
+
+
+
 
 function takeSnapshot() {
  var myCanvasElement = document.getElementById('myCanvas');
