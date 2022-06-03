@@ -73,18 +73,26 @@
         function onoffVideo(){
             if(camCode==0){
                 getVideo();
+                camCode = 1;
+                document.getElementById("cam").value = "캠 끄기";
             }
             else{
                 breakVideo();
+                camCode = 0;
+                document.getElementById("cam").value = "캠 켜기";
             }
         }
 
         function onoffAudio(){
             if(audioCode==0){
                 getAudio();
+                audioCode=1;
+                document.getElementById("cam").value = "오디오 정지";
             }
             else{
                 breakAudio();
+                audioCode=0;
+                document.getElementById("cam").value = "오디오 시작";
             }
         }
     </script>
@@ -123,8 +131,8 @@
                 <h1><?=$broadName?></h1>
                 <h4><?=$userId?></h4> 
                 
-                <input type=button value="캠 정지" onclick="{onoffVideo()}">
-                <input type=button value="오디오 정지" onclick="{onoffAudio()}">
+                <input type=button id = "cam" value="캠 정지" onclick="{onoffVideo()}">
+                <input type=button id = "audio" value="오디오 정지" onclick="{onoffAudio()}">
             </div>
 
            
