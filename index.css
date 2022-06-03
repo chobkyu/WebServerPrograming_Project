@@ -1,8 +1,22 @@
+@font-face {
+    font-family: 'Tium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/Tium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HaenamFont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/HaenamFont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    height: 100%;
+
+}
 
 a{
     text-decoration: none;
-    color: rgb(255, 255, 255);
-
 }
 
 .prontbar{
@@ -55,11 +69,6 @@ a{
 
 /*****body야 너는 왜 여기있니 위에 있던 body 삭제함********/
 
-
-body{
-    height: 100%;
-
-}
 
 hr{
     margin-bottom: 27px;
@@ -266,6 +275,289 @@ select {
     margin-right: 5px;
     cursor: pointer;
 }
+/*******************index page*********************/
+
+    /**index header 시작부분**/
+#serviceHeader{
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgb(255, 255, 255);
+    width: 100%;
+    height: 10%;
+    min-width: 1100px;
+    border-bottom: 1px solid #000000;
+    box-sizing: border-box;
+    z-index: 1500;
+}
+#Bugi_Logo{ /*부기 로고*/
+    position: absolute;
+    width: 15%;
+    margin-top:-8px;
+
+}
+#Bugi_Logo img{ /*이미지 크기 조절을 위해 이미지를100%로잡음*/
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#Bugi_Search{
+    position: relative;
+    background: transparent;
+    width: 65%;
+    padding: 12px 10px 12px 12px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-left:15%;
+    margin-right: 0px;
+    
+}
+#serach_input_Wrap{
+    position: relative;
+    width:30%;
+    min-height: 34px;
+    padding-right: 38px;
+    border: 1px solid #4279ff;
+    border-radius: 36px;
+    margin-top:8px;
+}
+input[type=search]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    background: url("https://ifh.cc/g/w6BgSH.png") center center no-repeat;
+    background-size:22px 22px;
+    background-color: #9fb7f4;
+    margin-top:0.1px;
+    width:25px;
+    height:25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#serach_input_Wrap #Keyword{
+    position: absolute;
+    top:1.5px;
+    left:10px;
+    min-height: 28px;
+    width:85%;
+    outline: none;
+    border: none;
+    font-size:15px;
+}
+
+
+.reset_btn{
+    position: absolute;
+    display: hidden;
+}
+
+.search_btn{
+    position: absolute;
+    right:11px;
+    top:1px;
+    font-size:25px;
+    background: transparent;
+    border:none;
+    cursor:pointer;
+    color:#4279ff;
+}
+
+.serviceUtil{
+    margin-top:0px;
+    margin-left:0px;
+    border:1px solid #000;
+    float:left;
+    width:23%;
+    height:100%;
+    display:flex;
+    text-align: center;
+}
+
+.serviceUtil li{
+    white-space: nowrap;
+    text-align:center;
+    font-size:25px;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right:70px;
+    padding-left:10px;
+    
+}
+.serviceUtil li:nth-child(2){
+    margin-top:5px;
+    font-family: 'HaenamFont';
+    color:#999;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right:70px;
+    padding-left:10px;
+
+}
+.serviceUtil li i{
+    padding:5px;
+}
+
+.serviceUtil li:nth-child(2) a{
+    padding: 5px;
+}
+
+.serviceUtil li i:hover{
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.serviceUtil li a:nth-child(1):hover{
+    background-color: #eee;
+    border-radius: 10px;
+}
+    /**index header 종료부분**/
+
+    /***index left_pront 시작부분***/
+
+.left_pront{
+    position:fixed;
+    box-sizing: border-box;
+    float:left;
+    top:10%;
+    left:0%;
+    width:15%;
+    height:90%;
+    border: 1px solid #000;
+    }
+.left_bar_top{
+    height: 40%;
+    border: 1px solid #000;
+}
+.left_bar_top li{
+    box-sizing: border-box;
+    margin-left:-35px;
+    margin-right: 5px;
+    margin-top:10px;
+    margin-bottom:30px;
+    height:24%;
+    border:0.1px solid #000;
+    text-align: left;
+    font-size: 25px;
+    padding-left:10px;
+    padding-top:12px;
+}
+
+
+.left_bar_top li h5{
+    margin-top:-32px;
+    margin-left:30px;
+    font-size:25px;
+}
+.left_bar_top li:hover{
+    background-color:#ddeeff;
+    border-radius: 10px;
+}
+
+.left_bar_bottom{
+    position: absolute;
+    margin-top:35%;
+    height: 40%;
+    width: 80%;
+    border: 1px solid #000;
+}
+.left_bar_bottom li{
+    margin-left:-20%;
+    margin-top:3%;
+    padding: 10px 10px;
+}
+.left_bar_bottom li:nth-child(1){
+    padding-top:30%;
+}
+
+.left_bar_bottom li a:hover{
+    color: #4279ff;
+}
+
+     /***index left_pront 종료부분***/
+
+
+    /***index list_container 시작부분***/
+.list_container{
+    margin-top:90px;
+    position:relative;
+    top:10%;
+    left:15%;
+    width:85%;
+    min-height:1080px;
+    border: 1px solid #000;
+}
+
+
+.hot_live{
+    box-sizing: border-box;
+    overflow:hidden;
+    width:100%;
+    height:300px;
+    border:1px solid #000;
+}
+
+.hot_live h3{
+    margin:0px;
+}
+
+.hot_broadcast{
+    padding-top:40px;
+    padding-left:5px;
+    padding-right:5px;
+    margin:0px;
+    height:100%;
+}
+
+.hot_prev{
+    position:absolute;
+    margin-top:-7%;
+    margin-left:-0.7%;
+}
+
+.hot_next{
+    position: absolute;
+    margin-top:-7%;
+    margin-left:100%;
+}
+
+.pr1{
+    border-radius: 10px;
+    max-width:67%;
+    max-height:60%;
+}
+
+
+.live{
+    width: 100%;
+    height: 780px;
+    border: 1px solid #000;
+}
+
+.live h3{
+    margin:0px;
+}
 
 
 
+     /***index list_container 종료부분***/
+
+
+
+
+/*******************index page*************************/
+
+body::-webkit-scrollbar {
+    width: 10px;  /* 스크롤바의 너비 */
+}
+
+body::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: #bbb; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #ddd;  /*스크롤바 뒷 배경 색상*/
+}
