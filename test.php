@@ -70,7 +70,8 @@
             });
         }
 
-        function onoffVideo(){
+        //비디오 오디오 껐다켰다 하기
+        function onoffVideo(){  
             if(camCode==0){
                 getVideo();
                 camCode = 1;
@@ -95,11 +96,27 @@
                 document.getElementById("cam").value = "오디오 시작";
             }
         }
+
+        function logFind(){
+            var loginId = window.sessionStorage.getItem("userId");
+            console.log(loginId);
+            if(loginId===null){
+                console.log("dsfdsaf");
+                location.href="login.php";
+            }
+            else{
+                alert(loginId);
+            }
+        }
     </script>
     <?php
         $userId = $_GET["userId"];
-        $broadName = $_GET["broadName"]
+        $broadName = $_GET["broadName"];
+
+        
+
     ?>
+
     <body>
         <div>
                 <nav class="prontbar">
@@ -110,7 +127,7 @@
                 
         
                     <div class="Login_menu"> 
-                        <a href="login.php">login</a>
+                        <p onclick = "logFind()">login</p>
                     </div>
                 </nav>    
 
