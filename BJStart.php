@@ -6,6 +6,19 @@
         <link rel="stylesheet" href="index.css">
     </head>
 
+    <?php
+        session_start();
+        $userSession = $_SESSION["userId"];
+       
+    ?>
+
+    <script>
+        var userSession = "<?=$userSession?>"
+        if(userSession==""){
+            alert("먼저 로그인 해주세요");
+            location.href = "login.php";
+        }
+    </script>
     <body>
 
         <div>
@@ -52,7 +65,7 @@
         <div class="contents">
             <!--BJ이름 나오게 출력할거-->
             <div class = "header">
-                <p>BJ이름</p>
+                <p><?=$userSession?></p>
             </div>
            
             <form name="broad_start" method="post" action="broadStart.php"> 

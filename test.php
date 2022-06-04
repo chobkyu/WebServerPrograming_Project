@@ -121,7 +121,7 @@
         <div>
                 <nav class="prontbar">
                     <div class="bar_logo">
-                        <a href="">WebServerProject</a>
+                        <a href="index.html">WebServerProject</a>
                     </div>
         
                 

@@ -9,7 +9,17 @@
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 
+<?php
+    session_start( );
+    
+?>
 <script>
+    var userSession = "<?= $_SESSION["userId"] ?>";
+    
+    if(userSession != ""){
+        alert("이미 로그인 되었습니다");
+        history.go(-1);
+    }
     function login(){
         console.log("log in!!");
         var userId = document.getElementById("id").value;
