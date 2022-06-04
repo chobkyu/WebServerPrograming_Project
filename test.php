@@ -86,14 +86,14 @@
 
         function onoffAudio(){
             if(audioCode==0){
-                getAudio();
+                getVideo();
                 audioCode=1;
-                document.getElementById("cam").value = "오디오 정지";
+                document.getElementById("audio").value = "오디오 정지";
             }
             else{
                 breakAudio();
                 audioCode=0;
-                document.getElementById("cam").value = "오디오 시작";
+                document.getElementById("audio").value = "오디오 시작";
             }
         }
 
