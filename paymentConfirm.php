@@ -17,11 +17,11 @@
         <form name="member_form" method="post" action="loginSite.php"> 
             <div class="int-area">
                 <h3 type="text" name="id" id="id"
-                autocomplete="off" required>***님 감사합니다</h3>
+                autocomplete="off" required>감사합니다</h3>
             </div>
             <div class="int-area">
                 <h3 type="text" name="confirm" id="confirm"
-                autocomplete="off" required>(결제 금액)원이 성공적으로 결제되었습니다</h3>
+                autocomplete="off" required>성공적으로 결제되었습니다</h3>
             </div>
         </form>
         </section>

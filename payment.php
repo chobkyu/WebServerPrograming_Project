@@ -12,18 +12,27 @@
     <section class="login-form">
         <h1></h1>
         <div class="bar_logo">
-            <a href="payment.html">Payment</a>
+            <a>Payment</a>
         </div>
-        <form name="member_form" method="post" action="loginSite.php"> 
+        <form name="member_form" method="post" action="cardCheck.php"> 
             <div class="int-area">
                 <h3 type="text" name="id" id="id"
-                autocomplete="off" required>***님 안녕하세요</h3>
+                autocomplete="off" required>반갑습니다(세션 값?)</h3>
             </div>
-
+            <div class="int-area">
+                <h3 type="text" name="cost" id="cost"
+                autocomplete="off" required>카드 번호</h3>
+                <input type="text" name="cardNum" id="cardNum" placeholder="- 없이 입력"/>
+            </div>
+            <div class="int-area">
+                <h3 type="text" name="cost" id="cost"
+                autocomplete="off" required>카드 비밀번호</h3>
+                <input type="text" name="cardPw" id="cardPw"/>
+            </div>
             <div class="int-area">
                 <h3 type="text" name="cost" id="cost"
                 autocomplete="off" required>결제 금액</h3>
-                <input type="text" name='textInput' id='textInput' placeholder="최소 100원"/>
+                <input type="text" name='textInput' id='textInput'/>
                 <select name='selectOption' id='selectOption'>
                     <option value="">직접 입력</option>
                     <option value="100">100</option>
@@ -34,10 +43,11 @@
                 </select>
             </div>
            <div class="btn-area">
-               <input type="button" id="naverPayBtn" value="결제"></button>
+               <button type="submit">결제</button>
            </div>
         </form>
         </section>
+        
 </body>
 <script>//option 값이 input 창으로 들어가게
     $(function(){
@@ -48,34 +58,5 @@
             idval.val(myTag);
         });
     });
-</script>
-<script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
-<script>//네이버 페이 사용
-var oPay = Naver.Pay.create({
-  "mode" : "production", // development or production
-  "clientId": "u86j4ripEt8LRfPGzQ8" // clientId
-});
-
-//직접 만드신 네이버페이 결제버튼에 click Event를 할당하세요
-var elNaverPayBtn = document.getElementById("naverPayBtn");
-
-elNaverPayBtn.addEventListener("click", function() {
-var inputData = document.getElementById("textInput").value;
-console.log(inputData);
-if(inputData<100){
-    alert("최소 금액 100원 이상입니다!");
-}
-else{
-    oPay.open({
-        "merchantUserKey": "qwer",
-        "merchantPayKey": "1234",
-        "productName": "별풍선",
-        "totalPayAmount": inputData,
-        "taxScopeAmount": inputData,
-        "taxExScopeAmount": "0",
-        "returnUrl": "http://localhost/WebServerPrograming_Project/paymentConfirm.html"
-});
-}
-});
 </script>
 </html>
