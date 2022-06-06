@@ -33,7 +33,7 @@
         }, 
                         
         function(error) {
-        alert('webcam not working');
+            alert('webcam not working');
         });
         }
 

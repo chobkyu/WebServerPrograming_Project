@@ -14,6 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div id="wrap">
         <header id="serviceHeader">
@@ -85,10 +86,11 @@
                             $row = mysqli_fetch_array($result1);
                             $broadName = $row["broadName"];
                             $userId = $row["userId"];
-                        
+                            
                             mysqli_close($con);
                             echo "
-                                <div class='live_broadcast'><img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\">
+                                <div class='live_broadcast' onclick=\"goToBroad($broadName,$userId)\">
+                                    <img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\">
                                     <h2>$broadName</h2>
                                     <h3>$userId</h3>
                                 </div>
@@ -139,6 +141,15 @@
     );
 </script>
 
+<script>
+    function goToBroad(a, b){
+        console.log(a);
+        var boardName = a;
+        var userId = b;
+
+        location.href = "board.php?userId="+boardName+"&broadName="+userId; 
+    }
+<script>
 
 <!--<script>
     var reset_btn=document.querySelector('.reset_btn');
