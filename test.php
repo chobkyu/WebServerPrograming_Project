@@ -10,7 +10,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
         <title>webcam</title>
         
-
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
          최신버전 Alpha를 이용하고 싶다면 아래 스크립트를 사용 -->
@@ -141,7 +140,7 @@
                     브라우저가 video 태그를 지원하지 않습니다.
                 </video>
                 
-                <iframe src="http://www.mk.co.kr" width="320" height="670"></iframe>
+                <iframe src="chat.html" width="320" height="670"></iframe>
 
             </div>
             <div class = "info">
