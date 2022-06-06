@@ -70,9 +70,39 @@
             <div class="live">
                 <h3>전체</h3>
                 <div class="live_container">
+                    <?php
+                        $con = mysqli_connect("localhost", "root", "tjwjd4921!","broad");
+                        $sql = "select * from broadcast";
+                        $result = mysqli_query($con, $sql);
+                        $total_rows = mysqli_num_rows($result);
+                        
+                      
+                        $i=1;
+                        while($i<=$total_rows){
+                            $con = mysqli_connect("localhost", "root", "tjwjd4921!","broad");
+                            $sql1 = "select broadName, userId from broadcast where seq='$i'";
+                            $result1 = mysqli_query($con, $sql1);
+                            $row = mysqli_fetch_array($result1);
+                            $broadName = $row["broadName"];
+                            $userId = $row["userId"];
+                        
+                            mysqli_close($con);
+                            echo "
+                                <div class='live_broadcast'><img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\">
+                                    <h2>$broadName</h2>
+                                    <h3>$userId</h3>
+                                </div>
+                            ";
+                            $i++;
+                        }
+                    ?>
+                    <!--
+                    <div class="live_broadcast"><img class="pr2"src="https://ifh.cc/g/sTWqT6.jpg">
+                        
+                    </div>
                     <div class="live_broadcast"><img class="pr2"src="https://ifh.cc/g/sTWqT6.jpg"></div>
                     <div class="live_broadcast"><img class="pr2"src="https://ifh.cc/g/sTWqT6.jpg"></div>
-                    <div class="live_broadcast"><img class="pr2"src="https://ifh.cc/g/sTWqT6.jpg"></div>
+                    -->
                 </div>
 
 
