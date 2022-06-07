@@ -89,7 +89,7 @@
                             
                             mysqli_close($con);
                             echo "
-                                <div class='live_broadcast' onclick=\"goToBroad($broadName,$userId)\">
+                                <div class='live_broadcast' onclick=\"{goToBroad($broadName,$userId)}\">
                                     <img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\">
                                     <h2>$broadName</h2>
                                     <h3>$userId</h3>
