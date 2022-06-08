@@ -28,7 +28,7 @@
             </div>
         </div>
         <ul class="serviceUtil">
-            <li><a href="BJStart.php"><i class="fa-solid fa-headset"></i></a></li>
+            <li><a href="myPage.php"><i class="fa-solid fa-headset"></i></a></li>
             <li><a href="login.php">로그인</a></li>
             <li><i class="fa-solid fa-list-ul"></i></li>
         </ul>
