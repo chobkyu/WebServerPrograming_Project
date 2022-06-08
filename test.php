@@ -10,7 +10,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
         <title>webcam</title>
         
-
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
          최신버전 Alpha를 이용하고 싶다면 아래 스크립트를 사용 -->
@@ -20,49 +19,85 @@
         var myVideoStream = document.getElementById('myVideo')     // make it a global variable
         var camCode = 0;
         var audioCode = 0;
-
+        var videoBool = 1;
+        var audioBool = 1;
+        
         function getVideo(){
-        navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-        navigator.getMedia({video: true, audio: true},
-                        
-        function(stream) {
-            myVideoStream.srcObject = stream   
-            myVideoStream.play();
-            camCode = 1;
-            audioCode = 1;
-        }, 
-                        
-        function(error) {
-            alert('webcam not working');
-        });
+            navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+          
+            
+            navigator.getMedia({video: true, audio: true},
+                            
+            function(stream) {
+                myVideoStream.srcObject = stream   
+                myVideoStream.play();
+                camCode = 1;
+                audioCode = 1;
+            }, 
+                            
+            function(error) {
+                alert('webcam not working');
+            });
         }
 
         getVideo(); //방송 바로 시작
 
         function breakVideo(){  //캠 끄기
             navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-            navigator.getMedia({video: false, audio: true},
+            if(camCode==0){
+                videoBool = 1;
+                camCode = 1;
+            }
+            else{
+                videoBool = 0;
+                camCode = 0;
+            }
+
+            if(audioCode==0){
+                audioBool = 0;
+            }
+            else{
+                audioBool = 1;
+            }
+
+            navigator.getMedia({video: videoBool, audio: audioBool},
                                     
                 function(stream) {
                     myVideoStream.srcObject = stream   
                     myVideoStream.remove;
-                    camCode = 0;
-                    
+                                        
                 }, 
                                     
                 function(error) {
                     alert('webcam not working');
                 });
-            }
+        }
 
         function breakAudio(){  //오디오 끄기
             navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-            navigator.getMedia({video: true, audio: false},
+            
+            if(audioCode==0){
+                audioBool = 1;
+                audioCode = 1;
+            }
+            else{
+                audioBool = 0;
+                audioCode = 0;
+            }
+
+            if(camCode==0){
+                videoBool = 0;
+            }
+            else{
+                videoBool = 1;
+            }
+
+            navigator.getMedia({video: videoBool, audio: audioBool},  
                             
             function(stream) {
                 myVideoStream.srcObject = stream   
                 myVideoStream.play();
-                audioCode = 0;
+                
             }, 
                             
             function(error) {
@@ -71,29 +106,23 @@
         }
 
         //비디오 오디오 껐다켰다 하기
-        function onoffVideo(){  
+        function onoffVideo(){
+            breakVideo();  
             if(camCode==0){
-                getVideo();
-                camCode = 1;
-                document.getElementById("cam").value = "캠 끄기";
+                document.getElementById("cam").value = "캠 켜기";
             }
             else{
-                breakVideo();
-                camCode = 0;
-                document.getElementById("cam").value = "캠 켜기";
+                document.getElementById("cam").value = "캠 끄기";
             }
         }
 
         function onoffAudio(){
+            breakAudio();
             if(audioCode==0){
-                getVideo();
-                audioCode=1;
-                document.getElementById("audio").value = "오디오 정지";
+                document.getElementById("audio").value = "오디오 시작";
             }
             else{
-                breakAudio();
-                audioCode=0;
-                document.getElementById("audio").value = "오디오 시작";
+                document.getElementById("audio").value = "오디오 정지";
             }
         }
 
@@ -141,7 +170,7 @@
                     브라우저가 video 태그를 지원하지 않습니다.
                 </video>
                 
-                <iframe src="http://www.mk.co.kr" width="320" height="670"></iframe>
+                <iframe src="chat.html" width="320" height="670"></iframe>
 
             </div>
             <div class = "info">
