@@ -9,7 +9,24 @@
     <?php
         session_start();
         $userSession = $_SESSION["userId"];
-       
+
+        $userId = "1234";
+        $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+        $sql = "select * from member where UserId='$userId'";
+        $result = mysqli_query($con, $sql);   
+        $num_record = mysqli_num_rows($result);
+        $memberBoard=mysqli_fetch_array($result);
+
+        $userId=$memberBoard['UserId'];
+        $userPw=$memberBoard['UserPw'];
+        $userNickName=$memberBoard['UserNickName'];
+        $userEmail=$memberBoard['UserEmail'];
+        $balloon=$memberBoard['Balloon'];
+        $donationBalloon=$memberBoard['DonationBalloon'];
+        $donatedBalloon=$memberBoard['DonatedBalloon'];
+        $runTime=$memberBoard['RunTime'];
+
+
     ?>
 
     <script>
@@ -73,14 +90,17 @@
                     
                     <div class="body-board">
                             <div class = "board_head" >
-                                <p> ○○○의방송국 정보 &nbsp; *</p>
+                                
+                                
+                                
+                                <p>  <?= $userNickName?>의방송국 정보 &nbsp; *</p>
                             </div>
                             <hr>
 
                             <div class="board_content input_board">
 
                                 <div class="input_part">
-                                    <p>ID</p>
+                                    <p>Id:<?= $userId?></p>
 
                                     <div class = "input_plus">
                                         <div class="inp_right_div">
@@ -93,27 +113,29 @@
                                 </div>
                                 
                                 <div class="input_part">
-                                    <p>NAME</p>&nbsp;&nbsp;
+                                    <p>NickName:<?= $userNickName?></p>&nbsp;&nbsp;
 
-                                    <div class="input_part">
-                                        <div class="input_right_div">
+                                    <div class = "input_plus">
+                                        <div class="inp_right_div">
                                             <div class="input_part_right inp_default">
-                                                <textarea name="broadInfo"></textarea>
+                                                <input type="text" name="broadName">
                                             </div>
-
+            
                                         </div>
-
                                     </div>
                                 </div>
 
                                 <div class="input_part">
-                                    <p>Email</p>
+                                    <p>Email:<?= $userEmail?></p>
                                     
-                                    <select name="category">
-                                        <option value="game">게임</option>
-                                        <option value="work">운동</option>
-                                        <option value="other">기타</option>
-                                    </select>
+                                    <div class = "input_plus">
+                                        <div class="inp_right_div">
+                                            <div class="input_part_right inp_default">
+                                                <input type="text" name="broadName">
+                                            </div>
+            
+                                        </div>
+                                    </div>
                                 </div>
                                 
 
@@ -131,7 +153,7 @@
                         <div class="board_content input_board">
 
                                 <div class="input_part">
-                                    <p>보유 별풍 갯수</p>
+                                    <p>보유 별풍 갯수:<?= $balloon?></p>
 
                                     <div class = "input_plus">
                                         <div class="inp_right_div">
@@ -144,34 +166,36 @@
                                 </div>
                                 
                                 <div class="input_part">
-                                    <p>쏜 별풍 갯수</p>&nbsp;&nbsp;
+                                    <p>쏜 별풍 갯수:<?= $donationBalloon?></p>&nbsp;&nbsp;
 
-                                    <div class="input_part">
-                                        <div class="input_right_div">
+                                    <div class = "input_plus">
+                                        <div class="inp_right_div">
                                             <div class="input_part_right inp_default">
-                                                <textarea name="broadInfo"></textarea>
+                                                <input type="text" name="broadName">
                                             </div>
-
+            
                                         </div>
-
                                     </div>
                                 </div>
 
                                 <div class="input_part">
-                                    <p>받은 별풍 갯수</p>
+                                    <p>받은 별풍 갯수:<?= $donatedBalloon?></p>
                                     
-                                    <select name="category">
-                                        <option value="game">게임</option>
-                                        <option value="work">운동</option>
-                                        <option value="other">기타</option>
-                                    </select>
+                                    <div class = "input_plus">
+                                        <div class="inp_right_div">
+                                            <div class="input_part_right inp_default">
+                                                <input type="text" name="broadName">
+                                            </div>
+            
+                                        </div>
+                                    </div>
                                 </div>
                                 
 
                             </div>
                 </div>
                 <div class="board_head">
-                            <p>방송시간:○○시간○○분○○초 </p>
+                            <p>방송시간:<?= $runTime?> </p>
                         </div>
             </form>
 
