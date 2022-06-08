@@ -1,0 +1,303 @@
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    margin: 0;
+    font-family:'Electrolize';
+}
+
+a{
+
+    text-decoration: none;
+    color: black;
+}
+
+/*******bar_menu 프론트바 부모****************/
+.bar_menu{
+    position: fixed;
+    list-style: none;
+    padding:5px;
+    background:#7193C1;
+    width: 15%;
+    height: 100%;
+    float:left;
+   margin-top: -11.5px;
+ 
+    }
+    .bar_menu li.bar_logo{
+   
+    }
+    .bar_menu li.bar_logo:hover{
+        background-color: #7193C1;
+        width:140.8px;
+     
+    }
+     
+    .bar_menu li:hover{
+         background-color: #d49466;
+                border-radius: 20px;
+               
+                width:140.8px;
+            }
+         
+    .bar_menu li{
+            padding: 50px 17px;
+            font-size: 17px;
+        
+         
+            
+        }
+    
+    .bar_menu .bar_logo a{
+            font-size:15.5px;
+          
+        }
+    .bar_logo i{
+            color:rgb(120, 120, 238);
+            font-size: 17px;
+        }
+
+
+    /***********bar_menu 프론트바 부모는 위에 있습니다*****/
+    
+.BackGround {
+    position: fixed;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background: #C0D0E6;
+    left:13%;
+    width:87%;
+    height: 100%;
+}
+/***********타이틀부터 댓글까지 묶음***********/
+.Main{   /******큰 박스*********/
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background:#C0D0E6;
+    height: 100%;
+    position: relative;
+    left: 13%;
+    width: 87%;
+    float:left;
+    
+}
+
+.title { /*****타이틀 창입니다 Free_view 묶은 부모창*****/
+    width:300px;
+    height: 100px;
+  }
+
+
+.title h2{ /*****h1타이틀만 쓰면 밀림현상때문에 넣어줌******/
+    font-size:0px;
+}
+
+.title h1{ /****Free-view*****/
+    position: relative;
+    left:100px;
+    top:0px;
+    font-size: 30px;
+    text-align: left;
+	margin-right:10px;
+}
+
+.bar2{ /*****작성 제목 타이틀*****/
+    width:170px;
+    height: 30px;
+    font-size: 10px;
+    margin-left:auto;
+  margin-right:auto;
+}
+
+.bar2 h1{ /***"작성제목"*3.30***/
+    position: relative;
+    left: -390px;
+    }
+
+.search-input{
+   margin-left:auto;
+   margin-right:auto;
+   height: 25px;
+   text-align: left;
+   width:950px;
+   border: 1px solid black;
+   background:#ffff;
+   font-size: 16px;
+}
+
+.bar3{ /********작성 내용 타이틀********/
+    width:170px;
+    height: 30px;
+    font-size: 10px;
+    margin-left:auto;
+  margin-right:auto;
+
+}
+.bar3 h1{ /**"작성내용"* 3.30일*/ 
+position: relative;
+left: -390px;
+}
+
+.content_table{ /***작성자가 기입하는 내용이 들어가는 곳*****/
+    margin-left:auto;
+    margin-right:auto;
+    width:950px;
+    height: 300px;
+    border: 1px solid black;
+    overflow-y: auto;
+    overflow-x: auto;
+    background:#ffff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.wab{ /*글 수정 삭제를 묶고 있는 부모 */
+    position: relative;
+  	left:-350px;
+    margin-left:auto;
+    margin-right:auto;
+    width:250px;
+    height:25px;
+}
+
+.WriterAndbtn{
+    
+}
+
+
+#delete,#revise{ /**글 수정 삭제버튼 댓글에도 사용함***/
+    display:inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+     }
+.Writer{ /**작성자*/
+        position: relative;
+        left:-350px;
+        margin-top: 30px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom: 20px;
+        border: 1px solid black; 
+        width:250px;
+        height:25px;
+        display: flex;
+        background: #ffff;
+    }
+    /*******댓글 쓰는 곳********/
+    #form-commentInfo{ 
+        margin-left:auto;
+    margin-right:auto;
+      width:950px;
+      }
+       #comment-count{ margin-bottom: 10px; width:500px;}
+        #comment-input{ width: 89%; height: 3.3em; }
+      
+         #submit{ background-color: rgb(0, 128,255);
+      width: 5.5em; height: 3.3em;; font-size: 15px; font-weight: bold; color: aliceblue; }
+  
+          #voteUp, #voteDown{ width: 3.5em; height: 1.9em; background-color: aqua; }
+      
+           #comments{ margin-top: 10px; } 
+           div#comments{
+              width:0px;
+              }   
+  /***댓글 쓰는 곳 id값으로 묶음*****/
+
+/******댓글 작성자 이름, 내용 묶음 부모 ******/
+.coment_writer{
+   
+     margin-left:auto;
+  margin-right:auto;
+   width:950px;
+}
+
+.conment_box { /**댓글 내용*/
+    box-sizing: border-box;
+    position:relative;
+    width: 90%;
+    height: 5%;
+    border: 1px solid black;
+    background: #fff;
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+
+.inline{/**댓글 작성자 이름과 시간**/
+display: inline-block;
+margin-right:10px;
+}
+
+.inline_CCTV{
+position: absolute;
+display: inline-block;
+right:14%;
+top:13%;
+}
+
+
+.pull-right{
+    /****댓글 수정 삭제묶음 ,댓글 수정 삭제 버튼은 위에있음*****/
+    position: relative;
+    top:-30px;
+    left:5px;
+    float: right;
+    padding-left:5px;
+    width: 10%;
+    margin-top:5px;
+    font-size:12px;
+}
+
+
+/****************테이블부터 댓글까지 end************************************/
+
+.write_title{
+    margin-left:auto;
+margin-right:auto;
+  font-size:25px;
+  font-weight: 400;
+}
+
+/*********페이징 부분*********/
+.paging{
+    margin-top: 10px; 
+    font-size:0;
+    text-align: center;
+ }
+ .paging a {
+    
+     display: inline-block;
+     font-size: 12px;
+     margin-left: 10px;
+     padding: 5px 10px;
+     
+ }
+ .paging a.num{
+     border: 1px solid navy;
+     border-radius: 100px;
+     color:black;
+     background: rgb(241, 241, 241);
+     }
+ 
+ 
+ .paging a:first-child{
+     margin-left: 0;
+ }
+ 
+ 
+.paging a.bt{
+     background:#7193C1;
+     border: 1px solid #ccc;
+ }
+ /******페이징 부분********/

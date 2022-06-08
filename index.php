@@ -43,8 +43,8 @@
 
             <ul class="left_bar_bottom">
                 <li><a href="index.html">랭킹</a></li>
-                <li><a href="index.html">소통센터</a></li>
-                <li><a href="index.html">고객센터</a></li>
+                <li><a href="comunication.html">소통센터</a></li>
+                <li><a href="QnA.html">고객센터</a></li>
                 <li><a href="index.html">이벤트</a></li>
             </ul>
         </div>
@@ -72,7 +72,7 @@
                 <h3>전체</h3>
                 <div class="live_container">
                     <?php
-                        $con = mysqli_connect("localhost", "root", "tjwjd4921!","broad");
+                        $con = mysqli_connect("localhost", "root", "","broad");
                         $sql = "select * from broadcast";
                         $result = mysqli_query($con, $sql);
                         $total_rows = mysqli_num_rows($result);
@@ -80,19 +80,29 @@
                       
                         $i=1;
                         while($i<=$total_rows){
-                            $con = mysqli_connect("localhost", "root", "tjwjd4921!","broad");
+                            $con = mysqli_connect("localhost", "root", "","broad");
                             $sql1 = "select broadName, userId from broadcast where seq='$i'";
                             $result1 = mysqli_query($con, $sql1);
                             $row = mysqli_fetch_array($result1);
                             $broadName = $row["broadName"];
                             $userId = $row["userId"];
-                            
+                            $locate = "location.href = broad.php?userId=".$userId."&broadName=".$broadName; ;
                             mysqli_close($con);
                             echo "
-                                <div class='live_broadcast' onclick=\"{goToBroad($broadName,$userId)}\">
-                                    <img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\">
+                                <div class='live_broadcast'>
+                                    <img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\" onclick=\"goToBroad($userid,$broadName)\">
                                     <h1>$broadName<br>$userId</h1>
                                 </div>
+
+                                <script>
+                                    function goToBroad(a, b){
+                                        console.log(a);
+                                        var userId = a;
+                                        var broadName = b;
+
+                                        
+                                    }
+                                <script>
                             ";
                             $i++;
                         }
@@ -140,15 +150,7 @@
     );
 </script>
 
-<script>
-    function goToBroad(a, b){
-        console.log(a);
-        var boardName = a;
-        var userId = b;
 
-        location.href = "board.php?userId="+boardName+"&broadName="+userId; 
-    }
-<script>
 
 <!--<script>
     var reset_btn=document.querySelector('.reset_btn');
