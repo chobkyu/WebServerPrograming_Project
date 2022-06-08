@@ -1,0 +1,230 @@
+body{
+    margin: 0;
+    font-family:'Electrolize';
+    height: 100%;
+     
+  
+}
+
+a{
+
+    text-decoration: none;
+    color: black;
+}
+
+.all{ 
+height: 100%;
+margin-top: -20px; 
+
+}
+
+.back_color{ /*****곡선 주기 위한 박스*******/
+    position: fixed;
+    width: 1018px;
+    height: 200px;
+    background-color: #7193C1;
+}
+
+.back_color2{ /***곡선 주기 위한 박스***/
+    position: fixed;
+    top:-0.42px;
+    width: 1018px;
+    height:100%;
+    background-color: #7193C1;
+}
+
+/***********타이틀부터 댓글까지 묶음***********/
+.BackGroundBox_Psfixed{   /******큰 박스*********/
+   
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background:#C0D0E6;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+	margin-left:250px;
+  
+    
+}
+
+.title h1{
+    position: relative;
+    left:100px;
+    top:0px;
+    font-size: 40px;
+    text-align: left;
+	margin-right:10px;
+}
+
+.title {
+  width:0px;
+
+}
+
+
+
+.write_title{
+      margin-left:auto;
+  margin-right:auto;
+    font-size:20px;
+    font-weight: 400;
+}
+
+
+   /*************section에 묶인 아이들은 아래쪽에 있답니다******/
+
+section{  /*****부모 ****/
+    width:70%;
+    height:80%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.bar1{ /**는 필수 입력사항입니다.***/
+    margin-left:120px;
+    background-color: #C0D0E6;
+    height:30px;
+    width:805px;
+    
+}
+.write_title1{
+    text-align: right;
+    font-size: 15px;
+}
+
+.bar2{ /*****작성 제목 타이틀*****/
+    width:170px;
+    height: 30px;
+    font-size: 10px;
+    margin-left:-30px;
+}
+
+.bar2 h1{ /***"작성제목"*3.30***/
+    
+}
+
+.search-input{ /*******작성제목을 유져가 기입하는곳*******/
+ margin-left:-30px;
+ height: 32px;
+ text-align: left;
+ width:950px;
+ border: 1px solid black;
+}
+
+.bar3{ /********작성 내용 타이틀********/
+    margin-left:-30px;
+    width:170px;
+    height: 30px;
+    font-size: 10px;
+    
+}
+.bar3 h1{ /**"작성내용"* 3.30*/ 
+   
+}
+/***********content_table**************/
+.content_table{ /**table 로  자식으로 .content가 있음*/
+    margin-left:-30px;
+    margin-bottom:10px;
+}
+
+td textarea.content{ /*작성내용 작성 하는 공간*/
+
+    width:950px;
+    height:300px;
+}
+/************content_table***************/
+
+.data{ /*데이터 올리는 공간*/
+    margin-left:-30px;
+    width:955px;
+    border: 1px solid black;
+    margin-bottom:10px;
+}
+
+
+
+.hr{ /*****작성자 ID 존재하는 곳*******/
+    margin-bottom:10px;
+    margin-left:-30px;
+    border: 1px solid black; 
+    width:250px;
+    height:30px;
+ 
+}
+
+button.d-btn{  /*게시글 등록 완료 버튼*/
+    margin-left:400px;
+    background: black;
+    color:#fff;
+    width:80px;
+    height: 40px;
+    border:0px;
+}
+
+button.d-btn:hover{/*마우스 가져다 대면 색 변경*/
+    background-color: #d49466;
+    
+    width: 80px;
+}
+
+/***********seciton에 묶인 아이들은 위쪽에 있답니다*********/
+
+
+
+div#comments{
+width:0px;
+}
+
+
+    
+
+/****************테이블부터 댓글까지 end************************************/
+
+
+
+ /*********Prontbar*******************/
+
+.bar_menu{
+    position: fixed;
+    margin-bottom: -20px;
+    list-style: none;
+    padding:5px;
+    background:#7193C1;
+    width: 180px;
+    height: 100%;
+
+    }
+
+.bar_menu li.bar_logo{
+   
+}
+.bar_menu li.bar_logo:hover{
+    background-color: #7193C1;
+    width:140.8px;
+   
+}
+ 
+.bar_menu li:hover{
+     background-color: #d49466;
+            border-radius: 20px;
+           
+            width:140.8px;
+        }
+     
+.bar_menu li{
+        padding: 50px 19px;
+        font-size: 19px;
+     
+        
+    }
+
+.bar_menu .bar_logo a{
+        font-size:15.5px;
+      
+    }
+.bar_logo i{
+        color:rgb(120, 120, 238);
+        font-size: 17px;
+    }
+/*************pront end*****************************/
+
