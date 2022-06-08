@@ -14,7 +14,16 @@
         <!--<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
          최신버전 Alpha를 이용하고 싶다면 아래 스크립트를 사용 -->
          <!--<script src="https://cdn.jsdelivr.net/npm/hls.js@alpha"></script>--> 
+         <style>
+            video{
+               transform: rotateY(180deg);
+               -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+               -moz-transform:rotateY(180deg); /* Firefox */
+            }
+</style>
+
     </head>
+
     <script>
         var myVideoStream = document.getElementById('myVideo')     // make it a global variable
         var camCode = 0;
