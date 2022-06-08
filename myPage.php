@@ -80,7 +80,7 @@
                             <div class="board_content input_board">
 
                                 <div class="input_part">
-                                    <p>방송 제목 입력</p>
+                                    <p>ID</p>
 
                                     <div class = "input_plus">
                                         <div class="inp_right_div">
@@ -93,7 +93,7 @@
                                 </div>
                                 
                                 <div class="input_part">
-                                    <p>방송정보</p>&nbsp;&nbsp;
+                                    <p>NAME</p>&nbsp;&nbsp;
 
                                     <div class="input_part">
                                         <div class="input_right_div">
@@ -107,7 +107,7 @@
                                 </div>
 
                                 <div class="input_part">
-                                    <p>방송 카테고리</p>
+                                    <p>Email</p>
                                     
                                     <select name="category">
                                         <option value="game">게임</option>
@@ -124,31 +124,55 @@
                     <br>
                     <div class="body-board">
                         <div class="board_head">
-                            <p> 사진 등록</p>
+                            <p>별풍선 </p>
                         </div>
                         <hr>
         
                         <div class="board_content input_board">
-        
-                            <div class="input_part">
-                                <p>썸네일 &nbsp;*</p>
-                                
-                                <div class="input_plus">
-                                    <div class="inp_right_div">
-                                        <div class="input_part_right photo_zone"></div>
-                                        <input type="file" id="uploadFile" class="inp_btn">
-                                        <label for="uploadFile" class="btn inp_btn">찾기</label>
+
+                                <div class="input_part">
+                                    <p>보유 별풍 갯수</p>
+
+                                    <div class = "input_plus">
+                                        <div class="inp_right_div">
+                                            <div class="input_part_right inp_default">
+                                                <input type="text" name="broadName">
+                                            </div>
+            
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                   
+                                
+                                <div class="input_part">
+                                    <p>쏜 별풍 갯수</p>&nbsp;&nbsp;
 
-                
+                                    <div class="input_part">
+                                        <div class="input_right_div">
+                                            <div class="input_part_right inp_default">
+                                                <textarea name="broadInfo"></textarea>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="input_part">
+                                    <p>받은 별풍 갯수</p>
+                                    
+                                    <select name="category">
+                                        <option value="game">게임</option>
+                                        <option value="work">운동</option>
+                                        <option value="other">기타</option>
+                                    </select>
+                                </div>
+                                
+
+                            </div>
                 </div>
-                <button class="btn" type="submit">방송시작</button>
+                <div class="board_head">
+                            <p>방송시간:○○시간○○분○○초 </p>
+                        </div>
             </form>
 
            
