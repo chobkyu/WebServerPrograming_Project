@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="건호" content="width=device-width, initial-scale=1.0">
-    <title>Free_Board</title>
+    <title>고객센터</title>
     <link rel="stylesheet" href="Free.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,7 @@
     <ul class="bar_menu">
         <li class="bar_logo">
             <i class="fa-solid fa-car-crash"></i>
-            <a href="index.html"><b>HansungProject</b></a>
+            <a href="index.html"><b>BugiTV</b></a>
         </li>
         <li><a href="CCTV_analysis.html">CCTV_analysis</a></li>
         <li><a href="Carmodel.html">Car_model </a></li>
@@ -39,7 +39,7 @@
  <div class="all_tb">
     <div class="Login_menu"> <a href="login.html">Login</a></div> 
     <div class="title">
-        <h1>Free_Board</h1>
+        <h1>고객센터</h1>
     </div>
     <div class="search-wrap">
     <select>
@@ -64,82 +64,38 @@
                 </tr>
          </thead>
             <tbody>
-                <tr>
-                <td>5</td>
-                <td><a href="Free_view.html">웹프로그래밍 하기 싫어</a></td>
-                <td>관리자</td>
-                <td>2022-3-17</td>    
-                </tr>
-    
-                 <tr>
-                <td>4</td>
-                <td><a href="#">살 빼야 한다</a></td>
-                <td>관리자</td>
-                <td>2022-3-16</td>
-                </tr>
-                <!-- 
-                <tr>
-                <td>3</td>
-                <td><a href="#">영우야 공부하자</a></td>
-                <td>관리자</td>
-                <td>2022-3-15</td>
-                </tr>
 
-                <tr>
-                <td>2</td>
-                <td><a href="#">아반떼</a></td>
-                <td>관리자</td>
-                <td>2022-3-14</td>
-                </tr>
+                <?php
+                $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                $sql = "select * from qna"; 
+                $result = mysqli_query($con, $sql);
+                $total_rows = mysqli_num_rows($result);
+
+                $i=1;
+                while($i<=$total_rows){
+                 $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                 $sql1 = "select seq, title, userId, time from QnA";
+                 $result1 = mysqli_query($con, $sql1);
+                 $row = mysqli_fetch_array($result1);
+                 $seq = $row["seq"];
+                 $title = $row["title"];
+                 $userId = $row["userId"];
+                 $time = $row["time"];
+
+                 mysqli_close($con);
+
+                 echo "
+                     <tr>
+                         <td>$seq</td>
+                         <td>$title</a></td>
+                         <td>$userId</td>
+                         <td>$time</td>    
+                     </tr>
+                 ";
+                 $i++;
+                }
+             ?>
                 
-                <tr>
-                <td>1</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
-                <tr>
-                <td>1</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
-                <tr>
-                <td>-1</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
-                <tr>
-                <td>-2</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
-              <tr>
-                <td>-3</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
-                <tr>
-                <td>-4</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-                <tr>
-                <td>-5</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr> -->
-
             </tbody>
         </table>
         <div class="paging">

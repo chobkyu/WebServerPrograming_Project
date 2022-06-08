@@ -62,86 +62,45 @@
                 <th>작성자</th>
                 <th>시간</th>                
                 </tr>
-         </thead>
+            </thead>
+
             <tbody>
-                <tr>
-                <td>5</td>
-                <td><a href="Free_view.html">웹프로그래밍 하기 싫어</a></td>
-                <td>관리자</td>
-                <td>2022-3-17</td>    
-                </tr>
-    
-                 <tr>
-                <td>4</td>
-                <td><a href="#">살 빼야 한다</a></td>
-                <td>관리자</td>
-                <td>2022-3-16</td>
-                </tr>
-                <!-- 
-                <tr>
-                <td>3</td>
-                <td><a href="#">영우야 공부하자</a></td>
-                <td>관리자</td>
-                <td>2022-3-15</td>
-                </tr>
+                <?php
+                   $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                   $sql = "select * from freeBoard"; 
+                   $result = mysqli_query($con, $sql);
+                   $total_rows = mysqli_num_rows($result);
 
-                <tr>
-                <td>2</td>
-                <td><a href="#">아반떼</a></td>
-                <td>관리자</td>
-                <td>2022-3-14</td>
-                </tr>
+                   $i=1;
+                   while($i<=$total_rows){
+                    $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                    $sql1 = "select seq, title, userId, time from freeBoard";
+                    $result1 = mysqli_query($con, $sql1);
+                    $row = mysqli_fetch_array($result1);
+                    $seq = $row["seq"];
+                    $title = $row["title"];
+                    $userId = $row["userId"];
+                    $time = $row["time"];
+
+                    mysqli_close($con);
+
+                    echo "
+                        <tr>
+                            <td>$seq</td>
+                            <td>$title</a></td>
+                            <td>$userId</td>
+                            <td>$time</td>    
+                        </tr>
+                    ";
+                    $i++;
+                   }
+                ?>
+
                 
-                <tr>
-                <td>1</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
-                <tr>
-                <td>1</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
-                <tr>
-                <td>-1</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
-                <tr>
-                <td>-2</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
-              <tr>
-                <td>-3</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
-                <tr>
-                <td>-4</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-                <tr>
-                <td>-5</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr> -->
-
+    
             </tbody>
         </table>
+
         <div class="paging">
            <!-- <a href="#" class="bt">처음</a>
             <a href="#" class="num"> &lt; </a>-->
@@ -152,7 +111,7 @@
             <a href="#" class="bt">마지막</a>-->
         </div>
 
-        <button class="d-btn"onclick="location.href='Free_Write.html'">등록</button >
+        <button class="d-btn"onclick="location.href='comunication_Write.html'">등록</button >
 
     </div>
     

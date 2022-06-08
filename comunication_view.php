@@ -14,12 +14,16 @@
      crossorigin="anonymous"></script>
 
 </head>
+
+<?php
+
+?>
 <body>
       
     <ul class="bar_menu">
         <li class="bar_logo">
             <i class="fa-solid fa-car-crash"></i>
-            <a href="index.html"><b>HansungProject</b></a>
+            <a href="index.html"><b>BugiTV</b></a>
         </li>
         <li><a href="CCTV_analysis.html">CCTV_analysis</a></li>
         <li><a href="Carmodel.html">Car_model </a></li>

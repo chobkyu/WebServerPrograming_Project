@@ -43,8 +43,8 @@
 
             <ul class="left_bar_bottom">
                 <li><a href="index.html">랭킹</a></li>
-                <li><a href="comunication.html">소통센터</a></li>
-                <li><a href="QnA.html">고객센터</a></li>
+                <li><a href="comunication.php">소통센터</a></li>
+                <li><a href="QnA.php">고객센터</a></li>
                 <li><a href="index.html">이벤트</a></li>
             </ul>
         </div>
@@ -86,7 +86,7 @@
                             $row = mysqli_fetch_array($result1);
                             $broadName = $row["broadName"];
                             $userId = $row["userId"];
-                            $locate = "location.href = broad.php?userId=".$userId."&broadName=".$broadName; ;
+                            $locate = "broad.php?userId=".$userId."&broadName=".$broadName ;
                             mysqli_close($con);
                             echo "
                                 <div class='live_broadcast'>
@@ -100,7 +100,7 @@
                                         var userId = a;
                                         var broadName = b;
 
-                                        
+                                        location.href = '$locate'; 
                                     }
                                 <script>
                             ";
