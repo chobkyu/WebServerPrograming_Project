@@ -27,7 +27,7 @@
             
             <script>
                 alert(\"로그인 되었습니다\");
-                history.go(-2) 
+                location.href='index.php' 
             </script>
         ");
     }

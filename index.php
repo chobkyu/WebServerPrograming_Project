@@ -15,6 +15,8 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
+
+
 <body>
     <div id="wrap">
         <header id="serviceHeader">
@@ -77,20 +79,40 @@
                         $result = mysqli_query($con, $sql);
                         $total_rows = mysqli_num_rows($result);
                         
+                        $sqlFirst = "select seq from broadCast limit 1";
+                        $firstResult = mysqli_query($con,$sqlFirst);
+                        $rowFirst = mysqli_fetch_array($firstResult);
+                        $firstSeq = $rowFirst["seq"];  // 첫번째 인덱스 값 구하기
+                      
+
                       
                         $i=1;
-                        while($i<$total_rows){
+                        while($i<=$total_rows){
                             $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
-                            $sql1 = "select seq, name, userId from broadCast where seq='$i'";
+                            $sql1 = "select seq, name, userId from broadCast where seq='$firstSeq'";
                             $result1 = mysqli_query($con, $sql1);
                             $row = mysqli_fetch_array($result1);
                             $name = $row["name"];
                             $userId = $row["userId"];
                             $seq = $row["seq"];
-                            //$locate = "broad.php?userId=".$userId."&broadName=".$broadName ;
+                            
+                            echo "
+                                <script>
+                                    function goToBoard(){
+                                       
+                                        var name = '$name';
+                                        var userId = '$userId';
+                                        var seq = $seq;
+                                       
+
+                                        location.href = \"broad.php?userId=\"+userId+\"&broadName=\"+name+\"&seq=\"+seq;
+                                    }
+                                </script>
+                            ";
+
                             mysqli_close($con);
                             echo "
-                                <div class='live_broadcast'>
+                                <div class='live_broadcast' onclick='goToBoard()'>
                                     <img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\" >
                                     <h1>$name<br>$userId</h1>
                                 </div>
@@ -121,6 +143,7 @@
 
     
 </body>
+
 
 
 <script>
