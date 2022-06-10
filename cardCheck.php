@@ -3,7 +3,7 @@
     $cardPw = $_POST['cardPw'];
     $cost = $_POST['textInput'];
 
-    $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "cxzaq159357!", "project");
+    $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
     $sql = "select * from card where cardNum='$cardNum' && cardPw='$cardPw'";
     $result = mysqli_query($con, $sql);
     $num_record = mysqli_num_rows($result);

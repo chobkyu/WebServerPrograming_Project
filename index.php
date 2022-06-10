@@ -28,9 +28,9 @@
             </div>
         </div>
         <ul class="serviceUtil">
-            <li><a href="myPage.php"><i class="fa-solid fa-headset"></i></a></li>
+            <li><a href="BjStart.php"><i class="fa-solid fa-headset"></i></a></li>
             <li><a href="login.php">로그인</a></li>
-            <li><i class="fa-solid fa-list-ul"></i></li>
+            <li onclick="location.href='myPage.php'"><i class="fa-solid fa-list-ul"></i></li>
         </ul>
         </header>
 
@@ -72,37 +72,29 @@
                 <h3>전체</h3>
                 <div class="live_container">
                     <?php
-                        $con = mysqli_connect("localhost", "root", "","broad");
-                        $sql = "select * from broadcast";
+                        $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                        $sql = "select * from broadCast";
                         $result = mysqli_query($con, $sql);
                         $total_rows = mysqli_num_rows($result);
                         
                       
                         $i=1;
-                        while($i<=$total_rows){
-                            $con = mysqli_connect("localhost", "root", "","broad");
-                            $sql1 = "select broadName, userId from broadcast where seq='$i'";
+                        while($i<$total_rows){
+                            $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                            $sql1 = "select seq, name, userId from broadCast where seq='$i'";
                             $result1 = mysqli_query($con, $sql1);
                             $row = mysqli_fetch_array($result1);
-                            $broadName = $row["broadName"];
+                            $name = $row["name"];
                             $userId = $row["userId"];
-                            $locate = "broad.php?userId=".$userId."&broadName=".$broadName ;
+                            $seq = $row["seq"];
+                            //$locate = "broad.php?userId=".$userId."&broadName=".$broadName ;
                             mysqli_close($con);
                             echo "
                                 <div class='live_broadcast'>
-                                    <img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\" onclick=\"goToBroad($userid,$broadName)\">
-                                    <h1>$broadName<br>$userId</h1>
+                                    <img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\" >
+                                    <h1>$name<br>$userId</h1>
                                 </div>
-
-                                <script>
-                                    function goToBroad(a, b){
-                                        console.log(a);
-                                        var userId = a;
-                                        var broadName = b;
-
-                                        location.href = '$locate'; 
-                                    }
-                                <script>
+                               
                             ";
                             $i++;
                         }
