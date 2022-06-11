@@ -44,7 +44,7 @@
             </ul>
 
             <ul class="left_bar_bottom">
-                <li><a href="index.html">랭킹</a></li>
+                <li><a href="rank.php">랭킹</a></li>
                 <li><a href="comunication.php">소통센터</a></li>
                 <li><a href="QnA.php">고객센터</a></li>
                 <li><a href="index.html">이벤트</a></li>
