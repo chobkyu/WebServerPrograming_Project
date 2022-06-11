@@ -5,12 +5,11 @@
         <title>개인 방송국</title>
         <link rel="stylesheet" href="index.css">
     </head>
-<!--
+
     <?php
         session_start();
-        $userSession = $_SESSION["userId"];
+        $userId = $_SESSION["userId"];
 
-        $userId = "1234";
         $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
         $sql = "select * from member where UserId='$userId'";
         $result = mysqli_query($con, $sql);   
@@ -35,13 +34,13 @@
             alert("먼저 로그인 해주세요");
             location.href = "login.php";
         }
-    </script>-->
+    </script>
     <body>
 
         <div>
             <nav class = "prontbar">
                 <div class = "bar_logo">
-                    <a href = "">WebServerProject</a>
+                    <a href = "/">WebServerProject</a>
                 </div>
 
                 <div class="Login_menu">
@@ -51,7 +50,7 @@
 
         
         </div>
-
+        
         <header class="nav-left" role="banner">
             <nav class = "nav" role="navigation">
                 <ul class="nav__list">
@@ -77,11 +76,11 @@
                 </ul>
             </nav>
         </header>
-        
+
         <div class="contents">
             <!--BJ이름 나오게 출력할거-->
             <div class = "header">
-                <p><?=$userSession?></p>
+                <p><?=$userId?></p>
             </div>
            
             <form name="broad_start" method="post" action="broadStart.php"> 
@@ -100,12 +99,12 @@
                             <div class="board_content input_board">
 
                                 <div class="input_part">
-                                    <p>Id:<?= $userId?></p>
+                                    <p>Id</p>
 
                                     <div class = "input_plus">
                                         <div class="inp_right_div">
                                             <div class="input_part_right inp_default">
-                                                <input type="text" name="broadName">
+                                                <input type="text" name="broadName" value="<?= $userId?>" disabled>
                                             </div>
             
                                         </div>
@@ -113,12 +112,12 @@
                                 </div>
                                 
                                 <div class="input_part">
-                                    <p>NickName:<?= $userNickName?></p>&nbsp;&nbsp;
+                                    <p>NickName</p>&nbsp;&nbsp;
 
                                     <div class = "input_plus">
                                         <div class="inp_right_div">
                                             <div class="input_part_right inp_default">
-                                                <input type="text" name="broadName">
+                                                <input type="text" name="broadName" value="<?= $userNickName?>" disabled>
                                             </div>
             
                                         </div>
@@ -126,12 +125,12 @@
                                 </div>
 
                                 <div class="input_part">
-                                    <p>Email:<?= $userEmail?></p>
+                                    <p>Email</p>
                                     
                                     <div class = "input_plus">
                                         <div class="inp_right_div">
                                             <div class="input_part_right inp_default">
-                                                <input type="text" name="broadName">
+                                                <input type="text" name="broadName" value="<?= $userEmail?>" disabled>
                                             </div>
             
                                         </div>
@@ -153,12 +152,12 @@
                         <div class="board_content input_board">
 
                                 <div class="input_part">
-                                    <p>보유 별풍 갯수:<?= $balloon?></p>
+                                    <p>보유 별풍 갯수</p>
 
                                     <div class = "input_plus">
                                         <div class="inp_right_div">
                                             <div class="input_part_right inp_default">
-                                                <input type="text" name="broadName">
+                                                <input type="text" name="broadName" value="<?=$balloon?>" disabled>
                                             </div>
             
                                         </div>
@@ -166,12 +165,12 @@
                                 </div>
                                 
                                 <div class="input_part">
-                                    <p>쏜 별풍 갯수:<?= $donationBalloon?></p>&nbsp;&nbsp;
+                                    <p>쏜 별풍 갯수</p>&nbsp;&nbsp;
 
                                     <div class = "input_plus">
                                         <div class="inp_right_div">
                                             <div class="input_part_right inp_default">
-                                                <input type="text" name="broadName">
+                                                <input type="text" name="broadName" value="<?= $donationBalloon?>" disabled>
                                             </div>
             
                                         </div>
@@ -179,12 +178,12 @@
                                 </div>
 
                                 <div class="input_part">
-                                    <p>받은 별풍 갯수:<?= $donatedBalloon?></p>
+                                    <p>받은 별풍 갯수</p>
                                     
                                     <div class = "input_plus">
                                         <div class="inp_right_div">
                                             <div class="input_part_right inp_default">
-                                                <input type="text" name="broadName">
+                                                <input type="text" name="broadName" value="<?= $donatedBalloon?>" disabled>
                                             </div>
             
                                         </div>

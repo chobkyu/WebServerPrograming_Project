@@ -18,6 +18,7 @@
         var name = document.getElementById("create_name").value;
         var email = document.getElementById("create_email").value;
         var answer = document.getElementById("create_answer").value;
+       
 
         if(id==""){
             alert("아이디를 입력해주세요");
@@ -40,6 +41,7 @@
             return false;
         }
 
+       
         if(answer==""){
             alert("답변을 입력해주세요");
             return false;
@@ -82,7 +84,7 @@
                 <label for="forgot_pw">Email</label>
             </div>
 
-
+        
             <div class="int-area">
                 <input type="text" name="answer" id="create_answer"
                 autocomplete="off" required>

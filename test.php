@@ -11,14 +11,14 @@
         <title>webcam</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-         최신버전 Alpha를 이용하고 싶다면 아래 스크립트를 사용 -->
+        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+        <!-- 최신버전 Alpha를 이용하고 싶다면 아래 스크립트를 사용 -->
          <!--<script src="https://cdn.jsdelivr.net/npm/hls.js@alpha"></script>--> 
          <style>
             video{
                transform: rotateY(180deg);
                -webkit-transform:rotateY(180deg); /* Safari and Chrome */
-               -moz-transform:rotateY(180deg); /* Firefox */
+               
             }
 </style>
 
@@ -146,6 +146,30 @@
                 alert(loginId);
             }
         }
+
+        function offbroad(){
+            <?php
+                $seq = $_GET["seq"];
+
+                $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                $sql = "delete from broadCast where seq = $seq";
+                $result = mysqli_query($con, $sql);
+            ?>
+            
+            //채팅 기능 구현시 해당 방의 채팅도 모두 삭제 해야함
+
+            location.href = "index.php";
+                    
+                
+        }        
+    
+
+        const videoTag = document.getElementById("myVideo"); 
+        const myMediaSource = new MediaSource(); 
+        const url = URL.createObjectURL(myMediaSource); 
+
+        videoTag.src = url;
+        alert(url);
     </script>
     <?php
         $userId = $_GET["userId"];
@@ -188,6 +212,7 @@
                 
                 <input type=button id = "cam" value="캠 정지" onclick="{onoffVideo()}">
                 <input type=button id = "audio" value="오디오 정지" onclick="{onoffAudio()}">
+                <input type=button id = "stop" value="방송 종료" onclick="{offbroad()}">
             </div>
 
            
