@@ -69,9 +69,29 @@
                 <!-- 보여지는 영역 --> 
                 <div class="swiper-wrapper" id="swiper-wrapper">
                  <!-- <div class="swiper-slide">내용</div> 를 추가하면된다 -->
-                <div class="hot_broadcast swiper-slide slideq"><img class="pr1"src="https://ifh.cc/g/sTWqT6.jpg"></div>
-                <div class="hot_broadcast swiper-slide slide2"><img class="pr1"src="https://ifh.cc/g/zHaVVL.jpg"></div>
-                <div class="hot_broadcast swiper-slide slide3"><img class="pr1"src="https://ifh.cc/g/qFoRPC.jpg"></div>
+                 <?php
+                    $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");//공백란에 디비 비번 입력 
+                    
+                    $sql ="select * from broadCast order by recommend desc limit 4";
+                    $result = mysqli_query($con,$sql);
+                    
+                    $num_result= $result->num_rows;
+
+                    for($i=0; $i<$num_result; $i++){
+                        $row = $result->fetch_assoc();
+                        $name = $row["name"];
+                        $userId = $row["userId"];
+                        $seq = $row["seq"];
+
+                        echo "
+                        <div class=\"hot_broadcast swiper-slide slideq\" onclick='goToBoard()'>
+                            <img class=\"pr1\"src=\"https://ifh.cc/g/sTWqT6.jpg\">
+                            <h1>$name<br>$userId</h1>
+                        </div>
+                        
+                        ";
+                    }
+                ?>
                 <div class="hot_broadcast swiper-slide slide4"><img class="pr1"src="https://ifh.cc/g/oy7wOQ.png"></div>    
                 </div> <!-- 페이징 버튼 처리 상황에 따라 추가 삭제가능-->
                 <div class="hot_prev"><div class="swiper-button-prev"></div></div>
