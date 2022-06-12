@@ -24,12 +24,14 @@
 
 </script>
 
-
+<?php
+    $key = $_GET["key"];
+?>
 <body>
     <div id="wrap">
         <header id="serviceHeader">
         <h1 id="Bugi_Logo">
-        <a href="index.html"><img src="https://ifh.cc/g/Orc8FH.png"></a>  
+        <a href="index.php"><img src="https://ifh.cc/g/Orc8FH.png"></a>  
         </h1>
         <div id="Bugi_Search">
             <div id="serach_input_Wrap">
@@ -46,7 +48,7 @@
 
         <div class="left_pront">
             <ul class="left_bar_top">
-                <a href="search.php?option=category&key=game"><li><i class="fa-solid fa-1"></i><h5>&nbsp;게임</h5></li></a>
+            <a href="search.php?option=category&key=game"><li><i class="fa-solid fa-1"></i><h5>&nbsp;게임</h5></li></a>
                 <a href="search.php?option=category&key=exercise"><li><i class="fa-solid fa-2"></i><h5>&nbsp;운동</h5></li></a>
                 <a href="search.php?option=category&key=other"><li><i class="fa-solid fa-3"></i><h5>&nbsp;기타</h5></li></a>
             </ul>
@@ -79,10 +81,68 @@
             </div>
 
             <div class="live">
-                <h3>전체</h3>
+                <h3><?=$key?>에 대한 검색 결과</h3>
                 <div class="live_container">
                     <?php
-                        $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                        $option = $_GET["option"];
+                        if($option=="search"){
+                            $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                            $sql = "select * from broadCast where userId like '%$key%' or name like '%$key%'";
+                            $result = mysqli_query($con, $sql);
+                            //$total_rows = mysqli_num_rows($result);
+                            //$row = mysqli_fetch_array($result);
+                            
+                            //$res = $mysqli->query($sql);
+                            $num_result = $result->num_rows;
+
+                            for($i=0; $i<$num_result; $i++)
+                            {
+                                $row = $result->fetch_assoc();
+                                $name=$row['name'];
+                                $userId=$row['userId'];
+                                echo "
+                                    <div class='live_broadcast' onclick='goToBoard()'>
+                                        <img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\" >
+                                        <h1>$name<br>$userId</h1>
+                                    </div>
+                               
+                                ";
+                               
+                            }
+                            mysqli_close($con);
+                            
+                           
+
+                        }
+
+                        if($option=="category"){
+                            $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                            $sql = "select * from broadCast where category like '%$key%'";
+                            $result = mysqli_query($con, $sql);
+                            //$total_rows = mysqli_num_rows($result);
+                            //$row = mysqli_fetch_array($result);
+                            
+                            //$res = $mysqli->query($sql);
+                            $num_result = $result->num_rows;
+
+                            for($i=0; $i<$num_result; $i++)
+                            {
+                                $row = $result->fetch_assoc();
+                                $name=$row['name'];
+                                $userId=$row['userId'];
+                                echo "
+                                    <div class='live_broadcast' onclick='goToBoard()'>
+                                        <img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\" >
+                                        <h1>$name<br>$userId</h1>
+                                    </div>
+                               
+                                ";
+                               
+                            }
+                            mysqli_close($con);
+                            
+                        }
+                        /*$con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
                         $sql = "select * from broadCast";
                         $result = mysqli_query($con, $sql);
                         $total_rows = mysqli_num_rows($result);
@@ -128,7 +188,7 @@
                             ";
                             $firstSeq++;
                             $i++;
-                        }
+                        }*/
                     ?>
                     <!--
                     <div class="live_broadcast"><img class="pr2"src="https://ifh.cc/g/sTWqT6.jpg">
