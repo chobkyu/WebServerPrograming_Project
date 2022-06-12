@@ -4,7 +4,7 @@ header("Content-Type: application/json; charset=UTF-8");
 $obj = json_decode($_GET["content"], false);
 //obj는 json형식 디코드(x정보 얻기, false로 해야 화면에 값을 표시해줍니다.);
 //(디코딩이란 부호화된 데이터를 부호화되기 전으로 되돌림을 말함)
-$conn = new mysqli("localhost", "root", "", "test1");
+$conn = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
 //conn은 mysqli에 접속한다. (localhost경로, 사용자 아이디, 비밀번호, db이름);
 mysqli_query ($conn, 'SET NAMES utf8');
 //mysqli_query utf8 셋팅
