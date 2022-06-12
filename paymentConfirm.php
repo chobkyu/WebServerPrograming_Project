@@ -7,13 +7,8 @@
     <title>confrim</title>
     <link rel="stylesheet" href="payment.css">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
-<script>
-    function popClose(){
-        window.opener = window.location.href; self.close();
-    }
-    setTimeout("popClose()", 3000);
-</script>
 <body>
     <section class="login-form">
         <h1></h1>
@@ -31,9 +26,22 @@
             </div>
             <div class="int-area">
                 <h5 type="text" name="confirm" id="confirm"
-                autocomplete="off" required>3초 후에 창이 자동으로 닫힙니다.</h5>
+                autocomplete="off" required><span id='closeCnt'>3</span>초 후에 창이 자동으로 닫힙니다.</h5>
             </div>
         </form>
         </section>
 </body>
+<script src="/libs/bootstrap/js/bootstrap.min.js"></script>
+<script>
+	$("document").ready(function(){
+		setTimeout(function () { window.close();}, 3000);
+		var closeCnt = 3;
+		setInterval(function(){
+			if(closeCnt > 0){
+			    closeCnt = closeCnt - 1;
+		        document.getElementById("closeCnt").innerHTML = closeCnt;				
+			}
+		}, 1000);
+	});
+</script>
 </html>
