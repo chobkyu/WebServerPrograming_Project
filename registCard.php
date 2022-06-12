@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>payment</title>
+    <title>card regist</title>
     <link rel="stylesheet" href="payment.css">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
@@ -12,21 +12,21 @@
     session_start();
     $userId = $_SESSION["userId"];
 ?>
-<script>
-    function regist(){
-        location.href="registCard.php";
-    }
-</script>
 <body>
     <section class="login-form">
         <h1></h1>
         <div class="bar_logo">
-            <a>결제 및 충전</a>
+            <a>카드 등록</a>
         </div>
-        <form name="member_form" method="post" action="paymentCheck.php"> 
+        <form name="member_form" method="post" action="cardCheck.php"> 
             <div class="int-area">
                 <h3 type="text" name="id" id="id"
                 autocomplete="off" required><?= $userId?>님 반갑습니다</h3>
+            </div>
+            <div class="int-area">
+                <h3 type="text" name="cost" id="cost"
+                autocomplete="off" required>카드 번호</h3>
+                <input type="text" name="cardNum" id="cardNum" placeholder="- 없이 입력"/>
             </div>
             <div class="int-area">
                 <h3 type="text" name="cost" id="cost"
@@ -35,24 +35,13 @@
             </div>
             <div class="int-area">
                 <h3 type="text" name="cost" id="cost"
-                autocomplete="off" required>결제 금액</h3>
-                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" name='textInput' id='textInput'/><span id="info">원</span>
-                <select name='selectOption' id='selectOption'>
-                    <option value="">직접 입력</option>
-                    <option value="100">100</option>
-                    <option value="500">500</option>
-                    <option value="1000">1000</option>
-                    <option value="5000">5000</option>
-                    <option value="10000">10000</option>
-                </select>
+                autocomplete="off" required>이름</h3>
+                <input type="text" name="name" id="name"/>
             </div>
            <div class="btn-area">
-               <button type="submit">결제 및 충전</button>
+               <button type="submit">등록</button>
            </div>
         </form>
-        <div class="btn-area">
-            <button id="charge" onclick="regist()">카드 등록</button>
-        </div>
         </section>
         
 </body>

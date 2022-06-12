@@ -1,42 +1,41 @@
+<!--채팅창에서 별풍쏘기 버튼 누르면 제일 처음 오는 페이지-->
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>payment</title>
+    <title>Shoot</title>
     <link rel="stylesheet" href="payment.css">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <?php
     session_start();
     $userId = $_SESSION["userId"];
+    $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+    $sql = "select * from member where UserId='$userId'";
+    $result = mysqli_query($con, $sql);   
+    $num_record = mysqli_num_rows($result);
+    $memberBoard=mysqli_fetch_array($result);
+    $balloon=$memberBoard['Balloon'];
 ?>
 <script>
-    function regist(){
-        location.href="registCard.php";
+    function charge(){
+        location.href='payment.php'
     }
 </script>
 <body>
     <section class="login-form">
         <h1></h1>
-        <div class="bar_logo">
-            <a>결제 및 충전</a>
-        </div>
-        <form name="member_form" method="post" action="paymentCheck.php"> 
+        <form name="member_form" method="post" action="shootCheck.php"> 
             <div class="int-area">
-                <h3 type="text" name="id" id="id"
-                autocomplete="off" required><?= $userId?>님 반갑습니다</h3>
+                <h3 type="text" name="info" id="info"
+                autocomplete="off" required>ID : <?= $userId?> &nbsp;&nbsp;&nbsp;&nbsp;잔여별풍 : <?= $balloon?></h3>
             </div>
             <div class="int-area">
                 <h3 type="text" name="cost" id="cost"
-                autocomplete="off" required>카드 비밀번호</h3>
-                <input type="text" name="cardPw" id="cardPw"/>
-            </div>
-            <div class="int-area">
-                <h3 type="text" name="cost" id="cost"
-                autocomplete="off" required>결제 금액</h3>
-                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" name='textInput' id='textInput'/><span id="info">원</span>
+                autocomplete="off" required>별풍선</h3>
+                <input type="text"  name='textInput' id='textInput'/><span id="info">개</span>
                 <select name='selectOption' id='selectOption'>
                     <option value="">직접 입력</option>
                     <option value="100">100</option>
@@ -47,12 +46,12 @@
                 </select>
             </div>
            <div class="btn-area">
-               <button type="submit">결제 및 충전</button>
+               <button id="shoot" type="submit">쏘기</button>
            </div>
         </form>
-        <div class="btn-area">
-            <button id="charge" onclick="regist()">카드 등록</button>
-        </div>
+            <div class="btn-area">
+                <button id="charge" onclick="charge()">충전</button>
+            </div>
         </section>
         
 </body>
@@ -67,3 +66,4 @@
     });
 </script>
 </html>
+

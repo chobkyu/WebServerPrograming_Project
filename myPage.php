@@ -27,6 +27,14 @@
 
 
     ?>
+    <script>
+        function popup(){
+            var url = "shootBalloon.php";
+            var name = "popup test";
+            var option = "width = 500, height = 500, top = 100, left = 200, location = no"
+            window.open(url, name, option);
+        }
+    </script>
 
     <script>
         var userSession = "<?=$userSession?>"
@@ -200,8 +208,8 @@
 
            
         </div>
-
+        <div>
+            <button onclick="popup()">쏘기</button>
+        </div>
     </body>
-
-    
 </html>
