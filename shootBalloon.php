@@ -35,7 +35,7 @@
             <div class="int-area">
                 <h3 type="text" name="cost" id="cost"
                 autocomplete="off" required>별풍선</h3>
-                <input type="text"  name='textInput' id='textInput'/><span id="info">개</span>
+                <input type="text"  oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" name='textInput' id='textInput'/><span id="info">개</span>
                 <select name='selectOption' id='selectOption'>
                     <option value="">직접 입력</option>
                     <option value="100">100</option>
