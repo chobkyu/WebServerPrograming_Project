@@ -169,6 +169,7 @@
         const url = URL.createObjectURL(myMediaSource); 
 
         videoTag.src = url;
+        console.log(url);
         alert(url);
     </script>
     <?php

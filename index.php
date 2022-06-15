@@ -111,8 +111,15 @@
                         $sqlFirst = "select seq from broadCast limit 1";
                         $firstResult = mysqli_query($con,$sqlFirst);
                         $rowFirst = mysqli_fetch_array($firstResult);
+                        if($rowFirst["seq"]==null){
+                            echo "
+                                <p>현재 방송 중인 BJ가 없습니다</p>
+                            ";
+                            return;
+                        }
+
                         $firstSeq = $rowFirst["seq"];  // 첫번째 인덱스 값 구하기
-                      
+                       
 
                       
                         $i=1;
