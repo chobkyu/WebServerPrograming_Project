@@ -16,7 +16,11 @@
          최신버전 Alpha를 이용하고 싶다면 아래 스크립트를 사용 -->
          <!--<script src="https://cdn.jsdelivr.net/npm/hls.js@alpha"></script>--> 
     </head>
-    
+    <?php
+        $userId = $_GET["userId"];
+        $broadName = $_GET["broadName"];
+        $seq = $_GET["seq"];
+    ?>
 
     <body>
         <div>
@@ -38,7 +42,7 @@
 
         <content>
             <div class ="webcam" style="position:absolute; top : -80px; left:0px bottom : -100px;">
-                <iframe src = "test.php?userId=test&broadName=test" id="bjVideo" scrolling ="no" width="1700" height="1230">
+                <iframe src = "test.php?userId=<?=$userId?>&broadName=<?=$broadName?>&seq=<?=$seq?>" id="bjVideo" scrolling ="no" width="1700" height="1230">
                     브라우저가 video 태그를 지원하지 않습니다.
                 </iframe>
                 

@@ -82,6 +82,19 @@
                         $seq = $row["seq"];
 
                         echo "
+                                <script>
+                                    function goToBoard(){
+                                       
+                                        var name = '$name';
+                                        var userId = '$userId';
+                                        var seq = $seq;
+                                       
+
+                                        location.href = \"broad.php?userId=\"+userId+\"&broadName=\"+name+\"&seq=\"+seq;
+                                    }
+                                </script>
+                            
+                        
                         <div class=\"hot_broadcast swiper-slide slideq\" onclick='goToBoard()'>
                             <img class=\"pr1\"src=\"https://ifh.cc/g/sTWqT6.jpg\">
                             <h1>$name<br>$userId</h1>
@@ -120,45 +133,52 @@
                             return;
                         }
 
-                        $firstSeq = $rowFirst["seq"];  // 첫번째 인덱스 값 구하기
+                        //$firstSeq = $rowFirst["seq"];  // 첫번째 인덱스 값 구하기
                        
-
+                        
+                        
                       
                         $i=1;
-                        while($i<=$total_rows){
+                        
                             $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
-                            $sql1 = "select seq, name, userId from broadCast where seq='$firstSeq'";
+                            $sql1 = "select seq, name, userId from broadCast";
                             $result1 = mysqli_query($con, $sql1);
-                            $row = mysqli_fetch_array($result1);
-                            $name = $row["name"];
-                            $userId = $row["userId"];
-                            $seq = $row["seq"];
+
+                            $num_result= $result1->num_rows;
+
+                            for($i=0; $i<$num_result; $i++){
+                                $row = $result1->fetch_assoc();
+                                $name = $row["name"];
+                                $userId = $row["userId"];
+                                $seq = $row["seq"];
+                                echo "
+                                    <script>
+                                        function gotoBoard(){
+                                        
+                                            var name = '$name';
+                                            var userId = '$userId';
+                                            var seq = $seq;
+                                        
+
+                                            location.href = \"broad.php?userId=\"+userId+\"&broadName=\"+name+\"&seq=\"+seq;
+                                        }
+                                    </script>
+                                ";
+
+                                
+                                echo "
+                                    <div class='live_broadcast' onclick='gotoBoard()'>
+                                        <img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\" >
+                                        <h1>$name<br>$userId</h1>
+                                    </div>
+                                
+                                ";
+                            }
                             
-                            echo "
-                                <script>
-                                    function goToBoard(){
-                                       
-                                        var name = '$name';
-                                        var userId = '$userId';
-                                        var seq = $seq;
-                                       
-
-                                        location.href = \"broad.php?userId=\"+userId+\"&broadName=\"+name+\"&seq=\"+seq;
-                                    }
-                                </script>
-                            ";
-
-                            mysqli_close($con);
-                            echo "
-                                <div class='live_broadcast' onclick='goToBoard()'>
-                                    <img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\" >
-                                    <h1>$name<br>$userId</h1>
-                                </div>
-                               
-                            ";
-                            $firstSeq++;
-                            $i++;
-                        }
+                            
+                           
+                            
+                        
                     ?>
                     <!--
                     <div class="live_broadcast"><img class="pr2"src="https://ifh.cc/g/sTWqT6.jpg">
