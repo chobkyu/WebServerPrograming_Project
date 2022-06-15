@@ -22,15 +22,14 @@
     <header class="back_color"></header><!----3.23--->
     <footer class="back_color2"></footer><!---3.23-->
     <ul class="bar_menu">
-        <li class="bar_logo">
+    <li class="bar_logo">
             <i class="fa-solid fa-car-crash"></i>
-            <a href="index.html"><b>BugiTV</b></a>
+            <a href="index.php"><b>BugiTV</b></a>
         </li>
-        <li><a href="CCTV_analysis.html">CCTV_analysis</a></li>
-        <li><a href="Carmodel.html">Car_model </a></li>
-        <li><a href="index.html">Streaming</a></li>
-        <li><a href="QnA.html">QnA</a></li>
-        <li><a href="Free.html">Free_Board</a></li>
+        <li><a href="rank.php">Ranking</a></li>
+        <li><a href="comunication.php">Community </a></li>
+        <li><a href="QnA.php">QnA</a></li>
+        <li><a href="event.php">Event</a></li>
 
     </ul>    
      
@@ -73,26 +72,31 @@
 
                 $i=1;
                 while($i<=$total_rows){
-                 $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
-                 $sql1 = "select seq, title, userId, time from QnA";
-                 $result1 = mysqli_query($con, $sql1);
-                 $row = mysqli_fetch_array($result1);
-                 $seq = $row["seq"];
-                 $title = $row["title"];
-                 $userId = $row["userId"];
-                 $time = $row["time"];
+                    $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                    $sql1 = "select seq, title, userId, time from qna where seq = '$i'";
+                    $result1 = mysqli_query($con, $sql1);
+                    $row = mysqli_fetch_array($result1);
+                    $seq = $row["seq"];
+                    $title = $row["title"];
+                    $userId = $row["userId"];
+                    $time = $row["time"];
 
-                 mysqli_close($con);
+                    mysqli_close($con);
 
-                 echo "
-                     <tr>
-                         <td>$seq</td>
-                         <td>$title</a></td>
-                         <td>$userId</td>
-                         <td>$time</td>    
-                     </tr>
-                 ";
-                 $i++;
+                    echo "
+                        <script>
+                            function QnARead(){
+                                location.href = \"QnA_view.php?seq=$seq\";
+                            }
+                        </script>
+                        <tr>
+                            <td>$seq</td>
+                            <td onclick = \"QnARead()\">$title</a></td>
+                            <td>$userId</td>
+                            <td>$time</td>    
+                        </tr>
+                    ";
+                    $i++;
                 }
              ?>
                 
@@ -108,7 +112,7 @@
             <a href="#" class="bt">마지막</a>-->
         </div>
 
-        <button class="d-btn"onclick="location.href='Free_Write.html'">등록</button >
+        <button class="d-btn"onclick="location.href='QnA_Write.php'">등록</button >
 
     </div>
     

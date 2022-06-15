@@ -26,18 +26,17 @@
             <i class="fa-solid fa-car-crash"></i>
             <a href="index.php"><b>BugiTV</b></a>
         </li>
-        <li><a href="CCTV_analysis.html">CCTV_analysis</a></li>
-        <li><a href="Carmodel.html">Car_model </a></li>
-        <li><a href="index.html">Streaming</a></li>
-        <li><a href="QnA.html">QnA</a></li>
-        <li><a href="Free.html">Free_Board</a></li>
+        <li><a href="rank.php">Ranking</a></li>
+        <li><a href="comunication.php">Community </a></li>
+        <li><a href="QnA.php">QnA</a></li>
+        <li><a href="event.php">Event</a></li>
 
     </ul>    
      
 <br>
 
  <div class="all_tb">
-    <div class="Login_menu"> <a href="login.html">Login</a></div> 
+    <div class="Login_menu"> <a href="login.php">Login</a></div> 
     <div class="title">
         <h1>Free_Board</h1>
     </div>

@@ -47,7 +47,7 @@
     <section class="login-form">
     <h1></h1>
     <div class="bar_logo">
-        <a href="index.html">WebServerProject</a>
+        <a href="index.php">WebServerProject</a>
     </div>
     <form name="member_form" method="post" action="loginSite.php"> 
         <div class="int-area">

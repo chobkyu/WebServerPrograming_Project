@@ -19,44 +19,49 @@
     <ul class="bar_menu">
         <li class="bar_logo">
             <i class="fa-solid fa-car-crash"></i>
-            <a href="index.html"><b>HansungProject</b></a>
+            <a href="index.php"><b>BugiTV</b></a>
         </li>
-        <li><a href="CCTV_analysis.html">CCTV_analysis</a></li>
-        <li><a href="Carmodel.html">Car_model </a></li>
-        <li><a href="index.html">Streaming</a></li>
-        <li><a href="QnA.html">QnA</a></li>
-        <li><a href="Free.html">Free_Board</a></li>
-
+        <li><a href="rank.php">Ranking</a></li>
+        <li><a href="comunication.php">Community </a></li>
+        <li><a href="QnA.php">QnA</a></li>
+        <li><a href="event.php">Event</a></li>
     </ul>    
      
 
+<?php
 
+    $seq = $_GET["seq"];
+    $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+    $sql = "select * from qna where seq = '$seq'";
+    $result = mysqli_query($con, $sql);
+
+    $row = mysqli_fetch_array($result);
+    $title = $row["title"];
+    $content = $row["content"];
+    $userId = $row["userId"];
+    $time = $row["time"];
+?>
 <div class="BackGround">
 </div> <!-----BackGround-->
 <div class="Main">
     <div class="title">
         <h2>1</h2>
-        <h1>Free_View</h1>
+        <h1>QnA_View</h1>
     </div>
     
     <div class="bar2"><h1 class="write_title2">작성 제목</h1></div>
-    <div class="search-input">제목제목제제목제목제제목제목제목</div>
+    <div class="search-input"><?=$title?></div>
 
     <div class="bar3"> <h1 class="write_title2">작성 내용</h1></div>
-    <div class="content_table">내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내엔터
-용용내용내용내롱롱롱엔터
-내용내용내용내용내킹ㅋ잌잌잌ㅇ엔터
-내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용용내용내용내내용내엔터
-내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용용내용내용내내용내엔터
-내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용용내용내용내내용내엔터
-내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용용내용내용내내용내엔터
-</div>
+    <div class="content_table">
+        <?=$content?>
+    </div>
 <div class="wab">
     <div class="WriterAndbtn">
     <div id="revise">수정</div>
     <div id="delete">삭제</div>
     </div></div>
-<div class="Writer">작성자 작성자</div>
+<div class="Writer"><?=$userId?></div>
 
 <div id="form-commentInfo"> 
 <div id="comment-count">댓글 <span id="count">0</span></div>
