@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"><!-- 장치의 폭에 따라 페이지의 폭을 설정해주는 기능. 초기줌은 1  -->
 <link rel="stylesheet" href="chat.css">
 </head> <!--  head태그 닫기 -->
+<?php
+	session_start();
+	$id = $_SESSION["userId"];
+?>
 <body> <!-- body태그 시작 -->
 <!--<audio id="myAudio"> audio 태그 시작. 태그 id 값은 myAudio 
   <source src="cute.mp3" type="audio/mpeg">
@@ -22,9 +26,9 @@ y축 스크롤은 자동. 이 태그는 demo라는 아이디 값을 가짐. -->
 <div class="input"><!-- input라는 이름의 클래스를 가진 div태그 시작 -->
  <div id="demo3"><!-- demo3라는 이름의 아이디를 가진 div태그 시작 -->
  </div><!-- demo3라는 이름의 아이디를 가진 div태그 닫기 -->
- 닉네임 : 
- <input type="text"id="user" name="nickname" onkeyup="nickname(this.value)" 
- placeholder="아이디를 입력하세요" maxlength="30">
+ 닉네임 : <p><?=$id?></p>
+ <!--<input type="text"id="user" name="nickname" onkeyup="nickname(this.value)" value="<?=$id?>" 
+ placeholder="아이디를 입력하세요" maxlength="30">-->
  <!-- 입력란에 키를 놓을 때 nickname()함수를 실행. 공란이면 가명을 입력하라는 안내 문구가 떠 있는다.-->
  <br>
   <!--비밀번호 : 
@@ -210,7 +214,7 @@ function apply() { //apply() 함수
 	  // x는 id라는 아이디를 가진 요소의 값을 가진다.
 	  var x2 = document.getElementById("id2").value;
 	  // x2는 id2라는 아이디를 가진 요소의 값을 가진다.
-	  var x3 = document.getElementById("user").value;
+	  var x3 = "<?=$id?>";
 	  // x3는 user라는 아이디를 가진 요소의 값을 가진다.
 	  var x4 = new Date();
 	  // x4는 시간 및 날짜 정보를 가진다.

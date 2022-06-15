@@ -111,6 +111,8 @@
                         $sqlFirst = "select seq from broadCast limit 1";
                         $firstResult = mysqli_query($con,$sqlFirst);
                         $rowFirst = mysqli_fetch_array($firstResult);
+                        
+                        ini_set('display_errors', '0');
                         if($rowFirst["seq"]==null){
                             echo "
                                 <p>현재 방송 중인 BJ가 없습니다</p>

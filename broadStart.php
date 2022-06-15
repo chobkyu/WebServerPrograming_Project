@@ -18,11 +18,11 @@
     
 
     $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
-    $sql1 = "select * from broadCast where userId = '$userId' and name =  '$broadName'";
+    $sql1 = "select * from broadCast where userId = '$userId' and name = '$broadName'";
     $result1 = mysqli_query($con, $sql1);
     $row = mysqli_fetch_array($result1);
     $seq = $row["seq"];
-    mysqli_close($con);
+    
     echo"
         <script>
             alert(\"$seq\");

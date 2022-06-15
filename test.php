@@ -15,12 +15,11 @@
         <!-- 최신버전 Alpha를 이용하고 싶다면 아래 스크립트를 사용 -->
          <!--<script src="https://cdn.jsdelivr.net/npm/hls.js@alpha"></script>--> 
          <style>
-            video{
-               transform: rotateY(180deg);
-               -webkit-transform:rotateY(180deg); /* Safari and Chrome */
-               
-            }
-</style>
+            video{
+              transform: rotateY(180deg);
+              -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+            }
+        </style>
 
     </head>
 
@@ -150,15 +149,13 @@
         function offbroad(){
             <?php
                 $seq = $_GET["seq"];
-
-                $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
-                $sql = "delete from broadCast where seq = $seq";
-                $result = mysqli_query($con, $sql);
             ?>
+            var seq = <?=$seq?>;
+            
             
             //채팅 기능 구현시 해당 방의 채팅도 모두 삭제 해야함
-
-            location.href = "index.php";
+            alert("방송을 종료합니다");
+            location.href = "endBroad.php?seq="+seq;
                     
                 
         }        
@@ -184,7 +181,7 @@
         <div>
                 <nav class="prontbar">
                     <div class="bar_logo">
-                        <a href="index.html">WebServerProject</a>
+                        <a href="index.php">WebServerProject</a>
                     </div>
         
                 
@@ -204,7 +201,7 @@
                     브라우저가 video 태그를 지원하지 않습니다.
                 </video>
                 
-                <iframe src="chat.html" width="320" height="670"></iframe>
+                <iframe src="chat.php" width="320" height="670"></iframe>
 
             </div>
             <div class = "info">
