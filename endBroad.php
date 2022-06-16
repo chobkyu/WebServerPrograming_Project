@@ -1,14 +1,30 @@
 <?php
-     
-     $seq = $_GET["seq"];
-
-     $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
-     $sql = "delete from broadCast where seq = $seq";
-     $result = mysqli_query($con, $sql);
+//추천수 합치기
+    $id = $_GET['userId'];
+    $seq = $_GET["seq"];
+    $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+	$sql = "select * from broadCast where seq= $seq";
+	$result = mysqli_query($con, $sql); 
+	$row = mysqli_fetch_array($result);
+	$recommend = $row['recommend'];
     
-     echo "
+    
+    $sql1 = "select * from member where UserId= '$id'";
+    $result1 = mysqli_query($con, $sql1);
+    $row = mysqli_fetch_array($result1);
+    $memberRecommend = $row['recommend'];
+    $memberRecommend = $memberRecommend + $recommend;
+   
+    $sql1 = "update member set recommend =  $memberRecommend where UserId= '$id'";
+    mysqli_query($con, $sql1);
+     //방송 데이터 삭제
+    $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+    $sql = "delete from broadCast where seq = $seq";
+    $result = mysqli_query($con, $sql);
+   
+    echo "
         <script>
             location.href = 'index.php';
         </script>
-     ";
+    ";
 ?>

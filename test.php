@@ -22,7 +22,13 @@
         </style>
 
     </head>
+    <?php
+        $userId = $_GET["userId"];
+        $broadName = $_GET["broadName"];
+        $seq = $_GET["seq"];
+        
 
+    ?>
     <script>
         var myVideoStream = document.getElementById('myVideo')     // make it a global variable
         var camCode = 0;
@@ -149,13 +155,14 @@
         function offbroad(){
             <?php
                 $seq = $_GET["seq"];
+                $userId =$_GET['userId'];
             ?>
             var seq = <?=$seq?>;
-            
+            var userId = '<?=$userId?>';
             
             //채팅 기능 구현시 해당 방의 채팅도 모두 삭제 해야함
             alert("방송을 종료합니다");
-            location.href = "endBroad.php?seq="+seq;
+            location.href = "endBroad.php?seq="+seq+"&userId="+userId;
                     
                 
         }        
@@ -169,13 +176,7 @@
         console.log(url);
         alert(url);
     </script>
-    <?php
-        $userId = $_GET["userId"];
-        $broadName = $_GET["broadName"];
-        $seq = $_GET["seq"];
-        
-
-    ?>
+  
 
     <body>
         <div>
