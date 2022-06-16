@@ -16,7 +16,17 @@
 </head>
 
 <?php
+    ini_set( 'display_errors', '0' );
+    $seq = $_GET["seq"];
+    $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+    $sql = "select * from freeBoard where seq = '$seq'";
+    $result = mysqli_query($con, $sql);
 
+    $row = mysqli_fetch_array($result);
+    $title = $row["title"];
+    $content = $row["content"];
+    $userId = $row["userId"];
+    $time = $row["time"];
 ?>
 <body>
       
@@ -42,90 +52,88 @@
     </div>
     
     <div class="bar2"><h1 class="write_title2">작성 제목</h1></div>
-    <div class="search-input">제목제목제제목제목제제목제목제목</div>
+    <div class="search-input"><?=$title?></div>
 
     <div class="bar3"> <h1 class="write_title2">작성 내용</h1></div>
-    <div class="content_table">내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내엔터
-용용내용내용내롱롱롱엔터
-내용내용내용내용내킹ㅋ잌잌잌ㅇ엔터
-내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용용내용내용내내용내엔터
-내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용용내용내용내내용내엔터
-내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용용내용내용내내용내엔터
-내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용용내용내용내내용내엔터
-</div>
+    <div class="content_table">
+        <?=$content?>
+    </div>
 <div class="wab">
     <div class="WriterAndbtn">
     <div id="revise">수정</div>
     <div id="delete">삭제</div>
     </div></div>
-<div class="Writer">작성자 작성자</div>
+<div class="Writer"><?=$userId?></div>
 
-<div id="form-commentInfo"> 
-<div id="comment-count">댓글 <span id="count">0</span></div>
-<input id="comment-input" placeholder="댓글을 입력해 주세요."> 
-<button id="submit">등록</button>
-<div id=comments> </div>
 
-<div class="coment_writer">
-    <div class="inline">
-    Writer</div>
-    <div class="inline">2022-04-01 &nbsp; 15:06</div>
+    <?php
+        $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");//공백란에 디비 비번 입력 
+        $sql = "select * from freeComment where freeNum=$seq"; 
+        $result = mysqli_query($con, $sql);
+        $total_rows = mysqli_num_rows($result); 
+    ?>
+
+    <div id="form-commentInfo"> 
+        <div id="comment-count">댓글 <span id="count"><?=$total_rows?></span></div>
+        <form name ="QnA_comment" method = "post" action = "QnAEnroll.php">
+            <input type="text" name = "comment" id="comment-input" placeholder="댓글을 입력해 주세요."> 
+            <input name ="seq" hidden value="<?=$seq?>">
+            <input name ="option" hidden value="freeComment">
+            <button id="submit">등록</button>
+            <div id=comments> </div>
+        </form>
+
+        <?php
+            $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");//공백란에 디비 비번 입력 
         
-    <div class="conment_box">
-        @@@@@@@@@@@@@@@@@@@@ 
+            $sql ="select * from freeComment where freeNum='$seq'";
+            $result = mysqli_query($con,$sql);
+            $total_rows = mysqli_num_rows($result); 
+            $i=0;
+            while($i<$total_rows){
+                $row = $result->fetch_assoc();
+                $id = $row["userId"];
+                $text = $row["text"];
+                $time = $row["time"];
+                echo"
+                    <div class=\"coment_writer\">
+                        <div class=\"inline\">$id</div>
+                        <div class=\"inline\">$time</div>
+                            
+                        <div class=\"conment_box\">
+                            $text
+                        </div>
+                        <div class=\"pull-right\">
+                            
+                            <div id=\"delete\">삭제</div>
+                        </div>
+                    </div>
+                ";
+                $i++;
+            }
+        ?>
+
+
+
+
+
+    <div class="paging">
+        <a href="#" class="num ">1</a>
+        <a href="#" class="num ">2</a>
+        <a href="#" class="num ">3</a>
+        <a href="#" class="num"> &gt; </a>
+        <a href="#" class="bt">마지막</a>
     </div>
-    <div class="pull-right">
-        <div id="revise">수정</div>
-        <div id="delete">삭제</div>
-        </div>
-</div>
+
+    </div> <!---------form-commentInfo-->
+    </div> <!-------con-->
 
 
-<div class="coment_writer">
-    <div class="inline">
-        Writer</div>
-        <div class="inline">2022-04-01 &nbsp; 15:07</div>
-    <div class="conment_box">
-        @@@@@@@@@@@@@@@@@@@@ 
-    </div>
-    <div class="pull-right">
-        <div id="revise">수정</div>
-        <div id="delete">삭제</div>
-        </div>
-</div>
+    </body>
 
+    <script>
 
-<div class="coment_writer">
-    <div class="inline">
-        Writer</div>
-        <div class="inline">2022-04-01 &nbsp; 15:08</div>
-    <div class="conment_box">
-        @@@@@@@@@@@@@@@@@@@@ 
-    </div>
-    <div class="pull-right">
-        <div id="revise">수정</div>
-        <div id="delete">삭제</div>
-        </div>
-</div>
-
-
-<div class="paging">
-    <a href="#" class="num ">1</a>
-    <a href="#" class="num ">2</a>
-    <a href="#" class="num ">3</a>
-    <a href="#" class="num"> &gt; </a>
-    <a href="#" class="bt">마지막</a>
-</div>
-
-</div> <!---------form-commentInfo-->
-</div> <!-------con-->
-
-
-</body>
-
-<script>
-
-</script>
+    </script>
 
 
 

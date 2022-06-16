@@ -73,7 +73,7 @@
                    $i=1;
                    while($i<=$total_rows){
                     $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
-                    $sql1 = "select seq, title, userId, time from freeBoard";
+                    $sql1 = "select seq, title, userId, time from freeBoard where seq = '$i'";
                     $result1 = mysqli_query($con, $sql1);
                     $row = mysqli_fetch_array($result1);
                     $seq = $row["seq"];
@@ -84,9 +84,14 @@
                     mysqli_close($con);
 
                     echo "
+                        <script>
+                            function FreeRead(){
+                                location.href = \"comunication_view.php?seq=$seq\";
+                            } 
+                        </script>
                         <tr>
                             <td>$seq</td>
-                            <td>$title</a></td>
+                            <td onclick = \"FreeRead()\">$title</a></td>
                             <td>$userId</td>
                             <td>$time</td>    
                         </tr>
@@ -110,7 +115,7 @@
             <a href="#" class="bt">마지막</a>-->
         </div>
 
-        <button class="d-btn"onclick="location.href='comunication_Write.html'">등록</button >
+        <button class="d-btn"onclick="location.href='comunication_Write.php'">등록</button >
 
     </div>
     

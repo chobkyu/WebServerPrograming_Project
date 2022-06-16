@@ -16,7 +16,12 @@
 </head>
 <body>
       
-
+<?php
+    session_start();
+    
+    $id = $_SESSION["userId"];
+    
+?>
     
 <div class="all">
     <header class="back_color"></header><!----3.23--->
@@ -41,27 +46,29 @@
     </div>
 
     <section>
-        <div class="bar1">&nbsp<h5 class="write_title1">*표는 필수 입력사항입니다.</h5></div>
+        <form name ="QnA_form" method = "post" action = "QnAEnroll.php">
+            <div class="bar1">&nbsp<h5 class="write_title1">*표는 필수 입력사항입니다.</h5></div>
 
-    <div class="bar2"><h1 class="write_title2">작성 제목*</h1></div>
-    <input type="search-input" class="search-input">
+            <div class="bar2"><h1 class="write_title2">작성 제목*</h1></div>
+            <input type="search-input" class="search-input" name="title">
 
-    <div class="bar3"> <h1 class="write_title2">작성 내용*</h1></div>
-    <table class="content_table">
-        <tr>
-        <td><textarea class="content">
-</textarea></td>
-        </tr>
-        </table>
-        <form class="data" action="서버" method="post" enctype="multipart/form-data">
-            <input type='file' name='' multiple/>
+            <div class="bar3"> <h1 class="write_title2">작성 내용*</h1></div>
+            <table class="content_table">
+                <tr>
+                    <td>
+                        <textarea class="content" name="content">
+                        </textarea>
+                    </td>
+                </tr>
+                </table>
+
+
+            <div class="hr"><?=$id?></div>
+            <input name ="option" hidden value="enrollFree">
+            <button type = "submit" class="d-btn" onclick="location.href='QnAEnroll.php'">등록</button >   
         </form>
 
-        <div class="hr">작성자 작성자</div>
-        <button class="d-btn"onclick="location.href='Free.html'">등록</button >   
-
-
-</section>
+    </section>
 
 
 

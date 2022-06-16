@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="건호" content="width=device-width, initial-scale=1.0">
-    <title>Free_Board</title>
+    <title>QnA</title>
     <link rel="stylesheet" href="Free_view.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
      
 
 <?php
-
+    ini_set( 'display_errors', '0' );
     $seq = $_GET["seq"];
     $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
     $sql = "select * from qna where seq = '$seq'";
@@ -59,7 +59,7 @@
     <div class="wab">
         <div class="WriterAndbtn">
             <div id="revise">수정</div>
-            <div id="delete">삭제</div>
+            <div id="delete" onclick="location.href = 'QnAEnroll.php?option=del&seq=<?=$seq?>'">삭제</div>
         </div>
     </div>
     <div class="Writer">
