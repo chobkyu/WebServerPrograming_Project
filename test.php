@@ -172,7 +172,7 @@
     <?php
         $userId = $_GET["userId"];
         $broadName = $_GET["broadName"];
-
+        $seq = $_GET["seq"];
         
 
     ?>
@@ -201,7 +201,7 @@
                     브라우저가 video 태그를 지원하지 않습니다.
                 </video>
                 
-                <iframe src="chat.php" width="320" height="670"></iframe>
+                <iframe src="chat.php?seq=<?=$seq?>" width="320" height="670"></iframe>
 
             </div>
             <div class = "info">

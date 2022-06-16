@@ -6,7 +6,7 @@
     $date = date("Y-m-d H:i:s");
 
 
-    if($option=="enroll"){
+    if($option=="enroll"){  //QnA 등록
         $title = $_POST["title"];
         $content = $_POST["content"];
 
@@ -25,7 +25,7 @@
     }
 
    
-    if($option == "comment"){
+    if($option == "comment"){  //QnA 댓글 등록
         $seq = $_POST["seq"];
         
         $comment = $_POST["comment"];
@@ -42,7 +42,7 @@
     ";
     }
 
-    if($option == "freeComment"){
+    if($option == "freeComment"){  //자유게시판 댓글 등록
         $seq = $_POST["seq"];
         
         $comment = $_POST["comment"];
