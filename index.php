@@ -43,7 +43,7 @@
             <li><a href="BjStart.php"><i class="fa-solid fa-headset"></i></a></li>
             <li><a href="login.php">로그인</a></li>
             <li onclick="location.href='myPage.php'"><i class="fa-solid fa-list-ul"></i></li>
-            <li><a href="logout.php">로그인</a></li>
+            <li><a href="logout.php">로그아웃</a></li>
         </ul>
         </header>
 

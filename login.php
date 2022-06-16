@@ -28,7 +28,7 @@
         var userPw = document.getElementById("pw").value;
 
         console.log(userId);
-        console.log(userPW);
+        console.log(userPw);
 
         if(userId=""){
             alret("아이디를 입력해주세요");
