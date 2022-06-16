@@ -30,7 +30,9 @@
 
 <?php
     ini_set( 'display_errors', '0' );
+    
     $seq = $_GET["seq"];
+    
     $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
     $sql = "select * from qna where seq = '$seq'";
     $result = mysqli_query($con, $sql);

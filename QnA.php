@@ -85,13 +85,14 @@
 
                     echo "
                         <script>
-                            function QnARead(){
-                                location.href = \"QnA_view.php?seq=$seq\";
+                            function QnARead(seq){
+                                var seq =seq;
+                                location.href = \"QnA_view.php?seq=\"+seq;
                             }
                         </script>
                         <tr>
                             <td>$seq</td>
-                            <td onclick = \"QnARead()\">$title</a></td>
+                            <td onclick = \"QnARead($seq)\">$title</a></td>
                             <td>$userId</td>
                             <td>$time</td>    
                         </tr>

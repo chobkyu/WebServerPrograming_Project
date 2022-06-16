@@ -85,13 +85,14 @@
 
                     echo "
                         <script>
-                            function FreeRead(){
-                                location.href = \"comunication_view.php?seq=$seq\";
+                            function FreeRead(seq){
+                                var seq = seq;
+                                location.href = \"comunication_view.php?seq=\"+seq;
                             } 
                         </script>
                         <tr>
                             <td>$seq</td>
-                            <td onclick = \"FreeRead()\">$title</a></td>
+                            <td onclick = \"FreeRead($seq)\">$title</a></td>
                             <td>$userId</td>
                             <td>$time</td>    
                         </tr>

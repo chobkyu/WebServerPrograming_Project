@@ -17,6 +17,17 @@
          <!--<script src="https://cdn.jsdelivr.net/npm/hls.js@alpha"></script>--> 
     </head>
     <?php
+        session_start();
+        $id = $_SESSION["userId"];
+        if($id == null){
+            echo "
+                <script>
+                    alert('로그인 해주세요');
+                    location.href='login.php';
+                </script>
+            ";
+        }
+
         $userId = $_GET["userId"];
         $broadName = $_GET["broadName"];
         $seq = $_GET["seq"];
