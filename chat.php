@@ -13,7 +13,7 @@
     <script>
         function popup(){
             var url = "shootBalloon.php?seq=<?=$seq?>";
-            var name = "popup test";x
+            var name = "popup test";
             var option = "width = 500, height = 500, top = 100, left = 200, location = no"
             window.open(url, name, option);
         }
@@ -240,7 +240,7 @@ function apply() { //apply() 함수
 	  // days에 일요일~토요일까지의 문자열의 값을 담은 배열을 저장한다.
 	  var time;
 	  // time이라는 이름을 가진 변수를 선언한다.
-	  
+	  var seq = <?=$seq?>;
 	  time = x4.getFullYear()+"년 "+(x4.getMonth()+1)+"월 "+x4.getDate()+"일 "
 	  +days[x4.getDay()]
 	  +x4.getHours()+"시 "+x4.getMinutes()+"분";
@@ -249,7 +249,7 @@ function apply() { //apply() 함수
 	  var obj, dbParam, xmlhttp; //obj, dbParam, xmlhttp 라는 이름을 지닌 변수
 	  obj = {"table":"tableforchat","chatuser":x3,"chattext":x2,
 			  /*"chatpassword":x,*///06-12 01:28분 문제 없음 확인 mysql에 값 안들어감.
-			  "chattime":time};
+			  "chattime":time,"seq":seq};
 	//obj에 자바스크립트 객체 값을 저장함
 	  dbParam = JSON.stringify(obj);
 	//dbParam에 obj에 담긴 자바스크립트 객체의 값을 JSON형식의 문자열로 저장함.
