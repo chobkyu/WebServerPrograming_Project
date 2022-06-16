@@ -18,27 +18,9 @@
             window.open(url, name, option);
         }
 
-		function recommend(code){
-			var code = code;
-			if(code==1){
-				<?php
-					echo "
-						alert($seq);
-					";
-					$con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
-					$sql = "select * from broadCast where $seq";
-					$result = mysqli_query($con, $sql); 
-					$row = mysqli_fetch_array($result);
-					$recommend = $row['recommend'];
-					$recommend++;
-					echo "
-						alert($recommend);
-					";
-					$sql1 = "update broadCast set recommend = $recommend where seq = $seq";
-					mysqli_query($con, $sql1);
-					
-				?>
-			}
+		function recommend(){
+			location.href = "recommend.php?seq=<?=$seq?>";
+			
 		}
     </script>
 <body> <!-- body태그 시작 -->
@@ -102,7 +84,7 @@ y축 스크롤은 자동. 이 태그는 demo라는 아이디 값을 가짐. -->
   채팅 입력</button>
   <button style="border:1px solid; width:100%; background:white;" onclick="popup()">
   별풍선 쏘기</button>
-  <button style="border:1px solid; width:100%; background:white;" onclick="recommend(1)">
+  <button style="border:1px solid; width:100%; background:white;" onclick="recommend()">
   추천하기</button>
   <!-- button태그. 1px 실선 테두리. 너비 100%. 배경 흰색. 클릭시 apply()함수 실행. -->
   <p id="demo2"></p><!-- demo2라는 아이디 값을 가진 p태그. -->
