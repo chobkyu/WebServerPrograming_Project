@@ -36,7 +36,7 @@
 <br>
 
  <div class="all_tb">
-    <div class="Login_menu"> <a href="login.html">Login</a></div> 
+    <div class="Login_menu"> <a href="login.php">Login</a></div> 
     <div class="title">
         <h1>고객센터</h1>
     </div>
