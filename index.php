@@ -62,7 +62,8 @@
         </div>
 
         <nav class="list_container">
-            <div class="hot_live">
+            
+        <div class="hot_live">
                 <h3>실시간 핫 이슈</h3> 
                 <!-- Slider main container -->
                 <div class="swiper-container"> 
@@ -82,7 +83,7 @@
                         $name = $row["name"];
                         $userId = $row["userId"];
                         $seq = $row["seq"];
-
+                        $file_copied = $row["file_copied"];
                         echo "
                                 <script>
                                     function goToBoard(){
@@ -98,7 +99,7 @@
                             
                         
                         <div class=\"hot_broadcast swiper-slide slideq\" onclick='goToBoard()'>
-                            <img class=\"pr1\"src=\"https://ifh.cc/g/sTWqT6.jpg\">
+                            <img class=\"pr1\"src=\"$file_copied\">
                             <h1>$name<br>$userId</h1>
                         </div>
                         
@@ -143,7 +144,7 @@
                         $i=1;
                         
                             $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
-                            $sql1 = "select seq, name, userId from broadCast";
+                            $sql1 = "select * from broadCast";
                             $result1 = mysqli_query($con, $sql1);
 
                             $num_result= $result1->num_rows;
@@ -153,6 +154,9 @@
                                 $name = $row["name"];
                                 $userId = $row["userId"];
                                 $seq = $row["seq"];
+                                $file_copied = $row["file_copied"];
+                                $file_type = $row["file_type"];
+                                $resFile = "./img/{$_file_copied}.{$file_type}";
                                 echo "
                                     <script>
                                         function gotoBoard(){
@@ -169,8 +173,9 @@
 
                                 
                                 echo "
+                              
                                     <div class='live_broadcast' onclick='gotoBoard()'>
-                                        <img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\" >
+                                        <img class=\"pr2\" src=\"img/{$file_copied}\"  >
                                         <h1>$name<br>$userId</h1>
                                     </div>
                                 

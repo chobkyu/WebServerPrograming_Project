@@ -68,7 +68,7 @@
                 <p><?=$userSession?></p>
             </div>
            
-            <form name="broad_start" method="post" action="broadStart.php"> 
+            <form name="broad_start" method="post" action="broadStart.php" enctype="multipart/form-data"> 
             <!--방송 정보 등록 내용-->
                 <div class="contents-body">
                     
@@ -137,7 +137,7 @@
                                 <div class="input_plus">
                                     <div class="inp_right_div">
                                         <div class="input_part_right photo_zone"></div>
-                                        <input type="file" id="uploadFile" class="inp_btn">
+                                        <input type="file" name="upfile" id="uploadFile" class="inp_btn">
                                         <label for="uploadFile" class="btn inp_btn">찾기</label>
                                     </div>
                                 </div>
