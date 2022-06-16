@@ -1,4 +1,6 @@
 <?php
+session_start();
+$seq = $_SESSION['seq'];
 header("Content-Type: application/json; charset=UTF-8");
 //해더("내용 유형 : json형식의 응용프로그램; 문자 UTF-8 인코딩");
 $obj = json_decode($_GET["content"], false);
@@ -8,7 +10,7 @@ $conn = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com
 //conn은 mysqli에 접속한다. (localhost경로, 사용자 아이디, 비밀번호, db이름);
 mysqli_query ($conn, 'SET NAMES utf8');
 //mysqli_query utf8 셋팅
-$stmt = $conn->prepare("SELECT * FROM $obj->table");
+$stmt = $conn->prepare("SELECT * FROM $obj->table where seq='$seq'");
 //DB쿼리문 입력(tableforchat 테이블에 담긴 정보를 불러옴)
 $stmt->execute();
 //stmt 실행

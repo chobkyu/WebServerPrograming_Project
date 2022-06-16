@@ -167,14 +167,14 @@
                 
         }        
     
-
+        /*
         const videoTag = document.getElementById("myVideo"); 
         const myMediaSource = new MediaSource(); 
         const url = URL.createObjectURL(myMediaSource); 
 
         videoTag.src = url;
         console.log(url);
-        alert(url);
+        alert(url);*/
     </script>
   
 

@@ -240,7 +240,9 @@ function apply() { //apply() 함수
 	  // days에 일요일~토요일까지의 문자열의 값을 담은 배열을 저장한다.
 	  var time;
 	  // time이라는 이름을 가진 변수를 선언한다.
+	  var seq = <?=$seq?>;
 	  
+	  console.log(seq);
 	  time = x4.getFullYear()+"년 "+(x4.getMonth()+1)+"월 "+x4.getDate()+"일 "
 	  +days[x4.getDay()]
 	  +x4.getHours()+"시 "+x4.getMinutes()+"분";
@@ -249,7 +251,7 @@ function apply() { //apply() 함수
 	  var obj, dbParam, xmlhttp; //obj, dbParam, xmlhttp 라는 이름을 지닌 변수
 	  obj = {"table":"tableforchat","chatuser":x3,"chattext":x2,
 			  /*"chatpassword":x,*///06-12 01:28분 문제 없음 확인 mysql에 값 안들어감.
-			  "chattime":time};
+			  "chattime":time,"seq":seq};
 	//obj에 자바스크립트 객체 값을 저장함
 	  dbParam = JSON.stringify(obj);
 	//dbParam에 obj에 담긴 자바스크립트 객체의 값을 JSON형식의 문자열로 저장함.
@@ -271,7 +273,9 @@ function apply() { //apply() 함수
 		  document.getElementById("demo").scrollTop =  document.getElementById("demo")
 		  .scrollHeight;
 		  //demo 아이디를 가진 요소의 스크롤 탑은 스크롤 높이 값과 같은 값을 가진다.
+		 
 		  xmlhttp.open("GET", "json_demo_db2.php?content=" + dbParam, true);
+		  console.log("여기까지는 오니");
 		//요청 유형을 지정한다.(get방식, url, 비동기 방식)
 		  xmlhttp.send(); //서버에 요청을 보낸다.
 	  }

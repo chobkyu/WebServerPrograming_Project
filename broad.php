@@ -20,6 +20,8 @@
         $userId = $_GET["userId"];
         $broadName = $_GET["broadName"];
         $seq = $_GET["seq"];
+        session_start();
+        $_SESSION['seq'] = $seq;
     ?>
 
     <body>
