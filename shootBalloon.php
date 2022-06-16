@@ -18,6 +18,8 @@
     $num_record = mysqli_num_rows($result);
     $memberBoard=mysqli_fetch_array($result);
     $balloon=$memberBoard['Balloon'];
+    $seq = $_GET['seq'];
+    $_SESSION['seq'] = $seq;
 ?>
 <script>
     function charge(){
@@ -44,6 +46,10 @@
                     <option value="5000">5000</option>
                     <option value="10000">10000</option>
                 </select>
+            </div>
+            <div class="int-area">
+                <h3 type="text" name="info" id="info"
+                autocomplete="off" required>seq : <?= $seq?></h3>
             </div>
            <div class="btn-area">
                <button id="shoot" type="submit">쏘기</button>

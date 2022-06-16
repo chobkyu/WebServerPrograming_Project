@@ -2,6 +2,7 @@
     session_start();
     $userId = $_SESSION['userId'];
     $cost = $_POST['textInput'];
+    $seq = $_SESSION['seq'];
 
     $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
     $sql = "select * from member where UserId='$userId'";
@@ -10,6 +11,7 @@
     $memberBoard=mysqli_fetch_array($result);
     $balloon=$memberBoard['Balloon'];
     $DonationBalloon = $memberBoard['DonationBalloon'];
+    $DonatedBalloon = $memberBoard['DonatedBalloon'];
 
     if(!$cost){
         echo("
@@ -36,12 +38,28 @@
         $aDonationBalloon = $DonationBalloon + $cost;
         $sql = "update member set DonationBalloon='$aDonationBalloon' where userId='$userId'";
         $result = mysqli_query($con, $sql);
+        
+        $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+        $sql = "select * from broadCast where seq=$seq";
+        $result = mysqli_query($con, $sql);
+        $castBoard = mysqli_fetch_array($result);
+        $caster = $castBoard['userId'];//방송 중인 사람의 아이디
+
+        //도네 받은 별풍 추가
+        $aDonatedBalloon = $DonatedBalloon + $cost;
+        $sql = "update member set DonatedBalloon='$aDonatedBalloon' where userId='$caster'";
+        $result = mysqli_query($con, $sql); 
+        
+        //방송인 별풍 추가
+        $aballoon = $balloon + $cost;
+        $sql = "update member set Balloon='$aballoon' where userId='$caster'";
+        $result = mysqli_query($con, $sql);
+
 
         echo(" 
             <script> 
                 location.href='paymentConfirm.php'
             </script>
         ");
-
     }
 ?>
