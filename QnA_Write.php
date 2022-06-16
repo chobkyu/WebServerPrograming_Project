@@ -65,7 +65,7 @@
             
 
             <div class="hr"><?=$id?></div>
-            
+            <input name ="option" hidden value="enroll">
             <button type = "submit" class="d-btn" onclick="location.href='QnAEnroll.php'">등록</button >   
     </form>
 

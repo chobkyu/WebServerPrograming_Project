@@ -56,60 +56,65 @@
     <div class="content_table">
         <?=$content?>
     </div>
-<div class="wab">
-    <div class="WriterAndbtn">
-    <div id="revise">수정</div>
-    <div id="delete">삭제</div>
-    </div></div>
-<div class="Writer"><?=$userId?></div>
+    <div class="wab">
+        <div class="WriterAndbtn">
+            <div id="revise">수정</div>
+            <div id="delete">삭제</div>
+        </div>
+    </div>
+    <div class="Writer">
+        <?=$userId?>
+    </div>
 
-<div id="form-commentInfo"> 
-<div id="comment-count">댓글 <span id="count">0</span></div>
-<input id="comment-input" placeholder="댓글을 입력해 주세요."> 
-<button id="submit">등록</button>
-<div id=comments> </div>
+    <?php
+        $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");//공백란에 디비 비번 입력 
+        $sql = "select * from qnaComment where qnaNum=$seq"; 
+        $result = mysqli_query($con, $sql);
+        $total_rows = mysqli_num_rows($result); 
+    ?>
 
-<div class="coment_writer">
-    <div class="inline">
-    Writer</div>
-    <div class="inline">2022-04-01 &nbsp; 15:06</div>
+    <div id="form-commentInfo"> 
+        <div id="comment-count">댓글 <span id="count"><?=$total_rows?></span></div>
+        <form name ="QnA_comment" method = "post" action = "QnAEnroll.php">
+            <input type="text" name = "comment" id="comment-input" placeholder="댓글을 입력해 주세요."> 
+            <input name ="seq" hidden value="<?=$seq?>">
+            <input name ="option" hidden value="comment">
+            <button id="submit">등록</button>
+            <div id=comments> </div>
+        </form>
+
+        <?php
+            $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");//공백란에 디비 비번 입력 
         
-    <div class="conment_box">
-        @@@@@@@@@@@@@@@@@@@@ 
-    </div>
-    <div class="pull-right">
-        <div id="revise">수정</div>
-        <div id="delete">삭제</div>
-        </div>
-</div>
+            $sql ="select * from qnaComment where qnaNum='$seq'";
+            $result = mysqli_query($con,$sql);
+            $total_rows = mysqli_num_rows($result); 
+            $i=0;
+            while($i<$total_rows){
+                $row = $result->fetch_assoc();
+                $id = $row["userId"];
+                $text = $row["text"];
+                $time = $row["time"];
+                echo"
+                    <div class=\"coment_writer\">
+                        <div class=\"inline\">$id</div>
+                        <div class=\"inline\">$time</div>
+                            
+                        <div class=\"conment_box\">
+                            $text
+                        </div>
+                        <div class=\"pull-right\">
+                            
+                            <div id=\"delete\">삭제</div>
+                        </div>
+                    </div>
+                ";
+                $i++;
+            }
+        ?>
 
 
-<div class="coment_writer">
-    <div class="inline">
-        Writer</div>
-        <div class="inline">2022-04-01 &nbsp; 15:07</div>
-    <div class="conment_box">
-        @@@@@@@@@@@@@@@@@@@@ 
-    </div>
-    <div class="pull-right">
-        <div id="revise">수정</div>
-        <div id="delete">삭제</div>
-        </div>
-</div>
 
-
-<div class="coment_writer">
-    <div class="inline">
-        Writer</div>
-        <div class="inline">2022-04-01 &nbsp; 15:08</div>
-    <div class="conment_box">
-        @@@@@@@@@@@@@@@@@@@@ 
-    </div>
-    <div class="pull-right">
-        <div id="revise">수정</div>
-        <div id="delete">삭제</div>
-        </div>
-</div>
 
 
 <div class="paging">
