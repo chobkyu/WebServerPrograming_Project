@@ -57,7 +57,7 @@
                 <li><a href="rank.php">랭킹</a></li>
                 <li><a href="comunication.php">소통센터</a></li>
                 <li><a href="QnA.php">고객센터</a></li>
-                <li><a href="index.html">이벤트</a></li>
+                <li><a href="event.php">이벤트</a></li>
             </ul>
         </div>
 
@@ -82,10 +82,24 @@
                         $name = $row["name"];
                         $userId = $row["userId"];
                         $seq = $row["seq"];
+                        $file_copied = $row["file_copied"];
+                        echo "
+                            <script>
+                                function gotoBoard(){
+                                
+                                    var name = '$name';
+                                    var userId = '$userId';
+                                    var seq = $seq;
+                                
+
+                                    location.href = \"broad.php?userId=\"+userId+\"&broadName=\"+name+\"&seq=\"+seq;
+                                }
+                            </script>
+                        ";
 
                         echo "
-                        <div class=\"hot_broadcast swiper-slide slideq\" onclick='goToBoard()'>
-                            <img class=\"pr1\"src=\"https://ifh.cc/g/sTWqT6.jpg\">
+                        <div class=\"hot_broadcast swiper-slide slideq\" onclick='gotoBoard()'>
+                            <img class=\"pr1\"src=\"img/{$file_copied}\">
                             <h1>$name<br>$userId</h1>
                         </div>
                         
@@ -118,11 +132,25 @@
                             for($i=0; $i<$num_result; $i++)
                             {
                                 $row = $result->fetch_assoc();
-                                $name=$row['name'];
-                                $userId=$row['userId'];
+                                $name = $row['name'];
+                                $userId = $row['userId'];
+                                $file_copied = $row["file_copied"];
+                                echo "
+                                    <script>
+                                        function goToBoard(){
+                                        
+                                            var name = '$name';
+                                            var userId = '$userId';
+                                            var seq = $seq;
+                                        
+
+                                            location.href = \"broad.php?userId=\"+userId+\"&broadName=\"+name+\"&seq=\"+seq;
+                                        }
+                                    </script>
+                                ";
                                 echo "
                                     <div class='live_broadcast' onclick='goToBoard()'>
-                                        <img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\" >
+                                        <img class=\"pr2\"src=\"img/{$file_copied}\" >
                                         <h1>$name<br>$userId</h1>
                                     </div>
                                
@@ -150,9 +178,24 @@
                                 $row = $result->fetch_assoc();
                                 $name=$row['name'];
                                 $userId=$row['userId'];
+                                $file_copied = $row["file_copied"];
+
                                 echo "
-                                    <div class='live_broadcast' onclick='goToBoard()'>
-                                        <img class=\"pr2\"src=\"https://ifh.cc/g/sTWqT6.jpg\" >
+                                    <script>
+                                        function goToBroad(){
+                                        
+                                            var name = '$name';
+                                            var userId = '$userId';
+                                            var seq = $seq;
+                                        
+
+                                            location.href = \"broad.php?userId=\"+userId+\"&broadName=\"+name+\"&seq=\"+seq;
+                                        }
+                                    </script>
+                                ";
+                                echo "
+                                    <div class='live_broadcast' onclick='goToBroad()'>
+                                        <img class=\"pr2\"src=\"img/{$file_copied}\" >
                                         <h1>$name<br>$userId</h1>
                                     </div>
                                
