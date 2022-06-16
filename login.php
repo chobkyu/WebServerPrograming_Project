@@ -17,9 +17,9 @@
 <script>
     var userSession = "<?= $_SESSION["userId"] ?>";
 
-    
+
     if(userSession != ""){  
-        alert("이미 로그인 되었습니다");
+        alert("되었습니다");
         history.go(-1);
     }
     function login(){
