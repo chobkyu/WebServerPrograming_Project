@@ -99,7 +99,7 @@
                             
                         
                         <div class=\"hot_broadcast swiper-slide slideq\" onclick='goToBoard()'>
-                            <img class=\"pr1\"src=\"$file_copied\">
+                            <img class=\"pr1\"src=\"img/{$file_copied}\">
                             <h1>$name<br>$userId</h1>
                         </div>
                         
