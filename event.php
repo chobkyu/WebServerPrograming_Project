@@ -36,7 +36,7 @@
 <br>
 
  <div class="all_tb">
-    <div class="Login_menu"> <a href="login.html">Login</a></div> 
+    <div class="Login_menu"> <a href="login.php">Login</a></div> 
     <div class="title">
         <h1>Event</h1>
     </div>
@@ -112,7 +112,7 @@
             <a href="#" class="bt">마지막</a>-->
         </div>
 
-        <button class="d-btn"onclick="location.href='QnA_Write.php'">등록</button >
+        <button class="d-btn"onclick="location.href='event_Write.php'">등록</button >
 
     </div>
     
