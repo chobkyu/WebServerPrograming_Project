@@ -23,9 +23,6 @@
         $balloon=$memberBoard['Balloon'];
         $donationBalloon=$memberBoard['DonationBalloon'];
         $donatedBalloon=$memberBoard['DonatedBalloon'];
-        $runTime=$memberBoard['RunTime'];
-
-
     ?>
     <script>
         function popup(){
