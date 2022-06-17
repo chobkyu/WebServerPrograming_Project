@@ -1,6 +1,23 @@
 <?php
-//추천수 합치기
+
+    session_start();
+    $userid = $_SESSION['userId'];
     $id = $_GET['userId'];
+
+    if($id != $userId){
+        echo "
+            <script>
+                alert('권한이 없습니다');
+                return;
+            </script>
+
+        ";
+    }
+
+//추천수 합치기
+    
+    
+    
     $seq = $_GET["seq"];
     $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
 	$sql = "select * from broadCast where seq= $seq";
