@@ -33,6 +33,18 @@
 
     $sql1 = "update member set RunTime =  $orignDate where UserId= '$id'";
     mysqli_query($con, $sql1);
+    
+    //채팅지우기
+    $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+    $sql = "delete from tableforchat where seq=$seq";
+    mysqli_query($con, $sql);
+    
+    
+    
+    
+    
+    
+    
     //추천수 합치기
     
     
