@@ -16,7 +16,7 @@
     <section class="login-form">
     <h1></h1>
     <div class="bar_logo">
-        <a href="index.html">Ranking</a>
+        <a href="index.php">Ranking</a>
     </div>
    
     <?php
@@ -41,7 +41,7 @@
             }
             echo "
                 <div class=\"int-area\">
-                <input type=\"text\" name=\"id\" id=\"id\"
+                <input type=\"submit\" name=\"id\" id=\"id\"
                 autocomplete=\"off\" value= \"$name\">
                 <label for=\"id\">$grade</label>
                 </div>
