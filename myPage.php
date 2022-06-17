@@ -9,6 +9,19 @@
     <?php
         session_start();
         $userId = $_SESSION["userId"];
+        /*
+        if($userId==""){
+            echo("
+            <script>
+                window.alert('먼저 로그인 하세요')
+                history.go(-1)
+            </script>
+            ");
+            exit;
+        }
+        */
+
+
 
         $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
         $sql = "select * from member where UserId='$userId'";
@@ -34,7 +47,7 @@
     </script>
 
     <script>
-        var userSession = "<?=$userSession?>"
+        var userSession = "<?=$userId?>"
         if(userSession==""){
             alert("먼저 로그인 해주세요");
             location.href = "login.php";
