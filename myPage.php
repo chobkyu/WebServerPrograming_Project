@@ -201,9 +201,7 @@
 
                             </div>
                 </div>
-                <div class="board_head">
-                    <p>방송시간:<?= $runTime?> </p>
-                </div>
+                
             </form>
 
            

@@ -7,6 +7,8 @@
     if($id != $userId){
         echo "
             <script>
+                alert($id);
+                alert($seq);
                 alert('권한이 없습니다');
                 return false;
             </script>
@@ -14,25 +16,7 @@
         ";
     }
 
-    //방송한 시간 구하기
-    $seq = $_GET["seq"];
-    $dateEnd = date("Y-m-d H:i:s");
-    $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
-    $sql = "select * from broadCast where seq=$seq";
-    $result = mysqli_query($con, $sql);
-    $row = mysqli_fetch_array($result);
-    $dateStart = $row['time'];
-    $date = date_diff($dateStart, $dateEnd);
 
-    $sql = "select * from member where UserId='$userId'";
-    $result1 = mysqli_query($con,$sql);
-    $row= mysqli_fetch_array($result1);
-    $orignDate = $row['RunTime'];
-
-    $orignDate = $orignDate + $date;
-
-    $sql1 = "update member set RunTime =  $orignDate where UserId= '$id'";
-    mysqli_query($con, $sql1);
     
     //채팅지우기
     $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
