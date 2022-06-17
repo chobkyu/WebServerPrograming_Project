@@ -149,7 +149,7 @@
             var userId = '<?=$userId?>';
             
             //채팅 기능 구현시 해당 방의 채팅도 모두 삭제 해야함
-            alert("방송을 종료합니다");
+            
             location.href = "endBroad.php?seq="+seq+"&userId="+userId;
                     
                 

@@ -7,8 +7,7 @@
     if($id != $userId){
         echo "
             <script>
-                alert($id);
-                alert($seq);
+                
                 alert('권한이 없습니다');
                 return false;
             </script>
@@ -16,7 +15,11 @@
         ";
     }
 
-
+    echo "
+        <script>
+            alert(\"방송을 종료합니다\");
+        </script>
+    ";
     
     //채팅지우기
     $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
