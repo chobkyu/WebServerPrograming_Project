@@ -61,7 +61,9 @@ y축 스크롤은 자동. 이 태그는 demo라는 아이디 값을 가짐. -->
  <div style="float:left;" title="(애교)" onclick="add('(애교)')">
  <img src='https://ifh.cc/g/tdwYsZ.png' style='width:20px; height:20px;'>
  </div>
-
+ <div style="float:left;" title="(1771249)" onclick="add('(1771249)')">
+ <img src='img/Balloon.PNG' style='width:30px; height:50px;'>
+ </div>
 
  </div><!-- dropdown-content라는 이름의 클래스를 가진 div태그 닫기. -->
  </div><!-- emoticon이라는 이름의 클래스를 가진 div태그 닫기. -->
@@ -114,6 +116,7 @@ function myTimer() {//myTimer()함수
 			  .replace(/\(화남\)/g,"<img src='https://ifh.cc/g/LCTX5o.png' style='width:40px; height:40px;'>")
 			  .replace(/\(좋음\)/g,"<img src='https://ifh.cc/g/a9KaPj.png' style='width:40px; height:40px;'>")
 			  .replace(/\(애교\)/g,"<img src='https://ifh.cc/g/tdwYsZ.png' style='width:40px; height:40px;'>")
+			  .replace(/\(1771249\)/g,"<img src='img/Balloon.PNG' style='width:50px; height:60px;'>")
 	    	  .replace(/\r\n/g,"<br>")
 					  +"<br>" //06-12 01:18분 확인
 	    			  //삭제 버튼을 추가해준다. 버튼 클릭시 textdelete(num,password)함수를 실행시키며, myObj[x]에 담긴 번호와 비밀번호를 전달한다.

@@ -55,6 +55,12 @@
         $sql = "update member set Balloon='$aballoon' where userId='$caster'";
         $result = mysqli_query($con, $sql);
 
+        //채팅창에 띄우기
+        date_default_timezone_set('Asia/Seoul');
+        $Date = date('Y년 m월 d일 H시 i분', time());
+        $sql = "insert into tableforchat (chatuser, chattext, chattime, seq) values('$userId','(1771249) \n$cost 개!!','$Date','$seq')";
+        $result = mysqli_query($con, $sql);
+
 
         echo(" 
             <script> 
