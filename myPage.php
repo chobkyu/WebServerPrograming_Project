@@ -77,10 +77,6 @@
                         </ul>
                     </li>
                     <br>
-                    <li>
-                        <input id="group-3" type="checkbox" hidden />
-                        <label for="group-3">방송 시간</label>
-                    </li>
                 </ul>
             </nav>
         </header>
@@ -205,9 +201,6 @@
             </form>
 
            
-        </div>
-        <div>
-            <button onclick="popup()">쏘기</button>
         </div>
     </body>
 </html>
