@@ -24,11 +24,6 @@
 		}
     </script>
 <body> <!-- body태그 시작 -->
-<!--<audio id="myAudio"> audio 태그 시작. 태그 id 값은 myAudio 
-  <source src="cute.mp3" type="audio/mpeg">
-   mp3 소스 경로는 test.html파일과 같은 경로에 있으므로 cute.mp3라고만 입력하면 된다. 
-  형식은 오디오/mpeg로 설정 
-//06-12 03:29 문제 없음 확인 완료</audio> audio 태그 닫기 --> 
 <div class="left"><!-- left라는 이름의 클래스를 가진 div태그 시작 -->
 </div><!-- left라는 이름의 클래스를 가진 div태그 닫기 -->
 <div class="center"><!-- center라는 이름의 클래스를 가진 div태그 시작 -->
@@ -74,13 +69,11 @@ y축 스크롤은 자동. 이 태그는 demo라는 아이디 값을 가짐. -->
   별풍선 쏘기</button>
   <button style="border:1px solid; width:100%; background:white;" onclick="recommend()">
   추천하기</button>
-  <!-- button태그. 1px 실선 테두리. 너비 100%. 배경 흰색. 클릭시 apply()함수 실행. -->
   <p id="demo2"></p><!-- demo2라는 아이디 값을 가진 p태그. -->
-</div><!-- input라는 이름의 클래스를 가진 div태그 닫기. -->
-</div><!-- center라는 이름의 클래스를 가진 div태그 닫기. -->
+</div>
+</div>
 <div class="right"><!-- right라는 이름의 클래스를 가진 div태그 시작 -->
-</div><!-- right라는 이름의 클래스를 가진 div태그 닫기 -->
-
+</div>
 
 <script>//스크립트 태그 시작
 //var music = document.getElementById("myAudio"); //myAudio라는 아이디 값을 지닌 요소의 정보를 변수 music에 저장

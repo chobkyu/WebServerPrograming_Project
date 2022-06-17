@@ -16,6 +16,18 @@ a{
 }
 
 
+body{
+    margin:0px;
+}
+
+.prontbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2f4b77;
+    padding: 10px 12px;
+}
+
 .bar_logo{
     font-size: 24px;
     color:white;
@@ -51,6 +63,34 @@ a{
     color : white;
 }
 
+.all_myPage{
+    float:left;
+    width: 70%;
+}
+
+.left, .right {
+    float:left; /* 유동 : 왼쪽  */
+    border:1px solid; /* 테두리 : 1px크기의 실선을 지닌 테두리  */
+    opacity:0; /* 불투명도 : 0 */
+    width: 15%;
+    }
+    #serviceHeader_myPage{
+        display: flex;
+        background: rgb(255, 255, 255);
+        width: 100%;
+        min-width: 1100px;
+        box-sizing: border-box;
+    }
+    #Bugi_Logo_myPage{ /*부기 로고*/
+        width: 15%;
+        height:50px;
+    }
+    #Bugi_Logo_myPage img{ /*이미지 크기 조절을 위해 이미지를100%로잡음*/
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+
 hr{
     margin-bottom: 27px;
     color: #e1e1ec;
@@ -73,9 +113,8 @@ li, ul{
 .nav-left{ /*BJStart*/
     background-color: #364153;
     display: flex;
-    flex-direction: column;
     width: 250px;
-    height: 920px;  /*이거 물어봐야겠음*/
+    height: 100%; /*이거 물어봐야겠음*/
     color: #ffffff;
     box-sizing: border-box;
 }
@@ -89,11 +128,7 @@ li, ul{
 
 /* 컨텐츠 */
 .contents{
-    position: absolute;
-    left: 250px;
-    top: 80px;
-    width: calc(100% - 250px);
-    height: 100%;
+    height: 90%;
     box-sizing: border-box;
 }
 
@@ -114,6 +149,10 @@ li, ul{
     padding: 30px;
     box-sizing: border-box;
 }
+
+.contents-body p{
+    margin-top:-3px;
+}
 .body-board{
     background-color: #ffffff;
     border-radius: 10px 10px;
@@ -129,7 +168,6 @@ li, ul{
     justify-content: space-between;
     width: 100%;
     box-sizing: border-box;
-    margin-bottom: 20px;
 }
 
 .input_board{
@@ -277,7 +315,6 @@ select {
     position: absolute;
     width: 15%;
     margin-top:-8px;
-
 }
 #Bugi_Logo img{ /*이미지 크기 조절을 위해 이미지를100%로잡음*/
     max-width: 100%;
