@@ -11,6 +11,7 @@
 <?php
     session_start();
     $userId = $_SESSION["userId"];
+    $seq = $_SESSION['seq'];
 ?>
 <script>
     function regist(){

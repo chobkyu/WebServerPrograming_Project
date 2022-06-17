@@ -11,6 +11,7 @@
 <?php
     session_start();
     $userId = $_SESSION["userId"];
+    $seq = $_SESSION['seq'];
 ?>
 <body>
     <section class="login-form">
