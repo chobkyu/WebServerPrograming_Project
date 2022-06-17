@@ -14,6 +14,16 @@
      crossorigin="anonymous"></script>
 
 </head>
+
+<script>
+    function search(){
+        var keyWord = document.getElementById("sel").value;
+        var searchKey = document.getElementById("searchKey").value;
+
+        location.href = "QnA.php?option=search&keyWord="+keyWord+"&searchKey="+searchKey;
+        
+    }
+</script>
 <body>
       
 
@@ -41,14 +51,14 @@
         <h1>고객센터</h1>
     </div>
     <div class="search-wrap">
-    <select>
-        <option>제목</option>
-        <option>작성자</option>
-        <option>제목+작성자</option>
+    <select id="sel">
+        <option value = "title">제목</option>
+        <option value = "writer">작성자</option>
+        <option value ="both">제목+작성자</option>
     </select>  
-    <input type="text" class="search-input" placeholder="Please Enter Text">
+    <input type="text" id="searchKey" class="search-input" placeholder="Please Enter Text">
 
-     <button type="submit" class="search-btn">검색</button>
+     <button onclick="search()" class="search-btn">검색</button>
     </div>
 
     <div class ="board_list_wrap">
@@ -67,6 +77,8 @@
                 <?php
                 ini_set('display_errors', '0');
                 $option = $_GET['option'];
+                
+
                 if($option == null){
                     $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
                     $sql = "select * from qna"; 
@@ -105,41 +117,106 @@
                 }
 
                 if($option=="search"){
-                    $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
-                    $sql = "select * from qna"; 
-                    $result = mysqli_query($con, $sql);
-                    $total_rows = mysqli_num_rows($result);
-
-                    $i=1;
-                    while($i<=$total_rows){
+                    $key = $_GET['keyWord'];
+                    $searchKey = $_GET['searchKey'];
+                    if($key == "title"){
                         $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
-                        $sql1 = "select seq, title, userId, time from qna where seq = '$i'";
-                        $result1 = mysqli_query($con, $sql1);
-                        $row = mysqli_fetch_array($result1);
-                        $seq = $row["seq"];
-                        $title = $row["title"];
-                        $userId = $row["userId"];
-                        $time = $row["time"];
+                        $sql = "select * from qna where title='$searchKey'"; 
+                        $result = mysqli_query($con, $sql);
 
-                        mysqli_close($con);
+                        $num_result = $result->num_rows;
 
-                        echo "
-                            <script>
-                                function QnARead(seq){
-                                    var seq =seq;
-                                    location.href = \"QnA_view.php?seq=\"+seq;
-                                }
-                            </script>
-                            <tr>
-                                <td>$seq</td>
-                                <td onclick = \"QnARead($seq)\">$title</a></td>
-                                <td>$userId</td>
-                                <td>$time</td>    
-                            </tr>
-                        ";
-                        $i++;
+                        for($i=0; $i<$num_result; $i++){
+                            $row = $result->fetch_assoc();
+                            $seq = $row['seq'];
+                            $title = $row["title"];
+                            $userId = $row["userId"];
+                            $time = $row["time"];
+                            echo "
+                                <script>
+                                    function QnARead(seq){
+                                        var seq =seq;
+                                        location.href = \"QnA_view.php?seq=\"+seq;
+                                    }
+                                </script>
+                                <tr>
+                                    <td>$seq</td>
+                                    <td onclick = \"QnARead($seq)\">$title</a></td>
+                                    <td>$userId</td>
+                                    <td>$time</td>    
+                                </tr>
+                            ";
+                        }
                     }
-                }
+
+                    if($key == "writer"){
+                        $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                        $sql = "select * from qna where userId='$searchKey'"; 
+                        $result = mysqli_query($con, $sql);
+    
+                        $num_result = $result->num_rows;
+    
+                        for($i=0; $i<$num_result; $i++){
+                            $row = $result->fetch_assoc();
+                            $seq = $row['seq'];
+                            $title = $row["title"];
+                            $userId = $row["userId"];
+                            $time = $row["time"];
+                            echo "
+                                <script>
+                                    function QnARead(seq){
+                                        var seq =seq;
+                                        location.href = \"QnA_view.php?seq=\"+seq;
+                                    }
+                                </script>
+                                <tr>
+                                    <td>$seq</td>
+                                    <td onclick = \"QnARead($seq)\">$title</a></td>
+                                    <td>$userId</td>
+                                    <td>$time</td>    
+                                </tr>
+                                ";
+                            }
+                        }
+                    }
+                    if($key == "both"){
+                        $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                        $sql = "select * from qna where title='$searchKey' or userId = '$searchKey'"; 
+                        $result = mysqli_query($con, $sql);
+
+                        $num_result = $result->num_rows;
+
+                        for($i=0; $i<$num_result; $i++){
+                            $row = $result->fetch_assoc();
+                            $seq = $row['seq'];
+                            $title = $row["title"];
+                            $userId = $row["userId"];
+                            $time = $row["time"];
+                            echo "
+                                <script>
+                                    function QnARead(seq){
+                                        var seq =seq;
+                                        location.href = \"QnA_view.php?seq=\"+seq;
+                                    }
+                                </script>
+                                <tr>
+                                    <td>$seq</td>
+                                    <td onclick = \"QnARead($seq)\">$title</a></td>
+                                    <td>$userId</td>
+                                    <td>$time</td>    
+                                </tr>
+                            ";
+                        }
+                    }
+                
+
+                        
+                       
+                    
+
+               
+                    
+                
              ?>
                 
             </tbody>
