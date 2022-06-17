@@ -22,7 +22,7 @@
     <?php
         $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");//공백란에 디비 비번 입력 
         
-        $sql ="select UserId from member order by recommend desc limit 3";
+        $sql ="select * from member order by recommend desc limit 3";
         $result = mysqli_query($con,$sql);
         
         $num_result= $result->num_rows;
@@ -30,14 +30,15 @@
         for($i=0; $i<$num_result; $i++){
             $row = $result->fetch_assoc();
             $name = $row['UserId'];
+            $recommend = $row['recommend'];
             if($i==0){
-                $grade = "1st";
+                $grade = "1st   추천 수 : ".$recommend;
             }
             if($i==1){
-                $grade = "2nd";
+                $grade = "2nd   추천 수 : ".$recommend;
             }
             if($i==2){
-                $grade = "3rd";
+                $grade = "3rd   추천 수 : ".$recommend;
             }
             echo "
                 <div class=\"int-area\">
