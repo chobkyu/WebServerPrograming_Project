@@ -26,7 +26,8 @@
         $userId = $_GET["userId"];
         $broadName = $_GET["broadName"];
         $seq = $_GET["seq"];
-        
+        session_start();
+        $_SESSION['seq'] = $seq;
 
     ?>
     <script>
@@ -184,12 +185,7 @@
                     <div class="bar_logo">
                         <a href="index.php">WebServerProject</a>
                     </div>
-        
-                
-        
-                    <div class="Login_menu"> 
-                        <p onclick = "logFind()">login</p>
-                    </div>
+    
                 </nav>    
 
              
@@ -198,11 +194,11 @@
 
         <content>
             <div class ="webcam">
-                <video id="myVideo" width="80%" height="100%" controls autoplay>
+                <video class="bjtest" id="myVideo" controls autoplay>
                     브라우저가 video 태그를 지원하지 않습니다.
                 </video>
                 
-                <iframe src="chat.php?seq=<?=$seq?>" width="320" height="670"></iframe>
+                <iframe class="chat_iframe"src="chat.php?seq=<?=$seq?>" width="320" height="670"></iframe>
 
             </div>
             <div class = "info">
