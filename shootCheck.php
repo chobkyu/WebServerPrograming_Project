@@ -32,6 +32,7 @@
         exit;
     }
     if($balloon>=$cost){
+        //userId의 데이터베이스
         $rballoon = $balloon-$cost;
         $sql = "update member set Balloon='$rballoon' where userId='$userId'";
         $result = mysqli_query($con, $sql);
@@ -39,20 +40,24 @@
         $sql = "update member set DonationBalloon='$aDonationBalloon' where userId='$userId'";
         $result = mysqli_query($con, $sql);
         
-        $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
-        $sql = "select * from broadCast where seq=$seq";
+        //방송인 userId 가져오기
+        $sql = "select * from broadCast where seq='$seq'";
         $result = mysqli_query($con, $sql);
-        $castBoard = mysqli_fetch_array($result);
-        $caster = $castBoard['userId'];//방송 중인 사람의 아이디
+        $casterBoard = mysqli_fetch_array($result);
+        $caster = $casterBoard['userId'];//방송인 userId
 
-        //도네 받은 별풍 추가
+        //member 테이블에서 방송인 정보 가져오기
+        $sql = "select * from member where userId='$caster'";
+        $result = mysqli_query($con, $sql);
+        $memberBoard = mysqli_fetch_array($result);
+        $DonatedBalloon = $memberBoard['DonatedBalloon'];
+        $Balloon = $memberBoard['Balloon'];
+
+        $aBalloon = $Balloon + $cost;
         $aDonatedBalloon = $DonatedBalloon + $cost;
-        $sql = "update member set DonatedBalloon='$aDonatedBalloon' where userId='$caster'";
-        $result = mysqli_query($con, $sql); 
-        
-        //방송인 별풍 추가
-        $aballoon = $balloon + $cost;
-        $sql = "update member set Balloon='$aballoon' where userId='$caster'";
+        $sql = "update member set DonatedBalloon = '$aDonatedBalloon' where userId='$caster'";
+        $result = mysqli_query($con, $sql);
+        $sql = "update member set Balloon = '$aBalloon' where userId='$caster'";
         $result = mysqli_query($con, $sql);
 
         //채팅창에 띄우기

@@ -128,7 +128,13 @@
                             
                             //$res = $mysqli->query($sql);
                             $num_result = $result->num_rows;
-
+                            
+                            if($num_result==null){
+                                echo "
+                                    <p>현재 방송 중인 BJ가 없습니다</p>
+                                ";
+                                return; 
+                            }
                             for($i=0; $i<$num_result; $i++)
                             {
                                 $row = $result->fetch_assoc();
@@ -172,6 +178,13 @@
                             
                             //$res = $mysqli->query($sql);
                             $num_result = $result->num_rows;
+
+                            if($num_result==null){
+                                echo "
+                                    <p>현재 방송 중인 BJ가 없습니다</p>
+                                ";
+                                return; 
+                            }
 
                             for($i=0; $i<$num_result; $i++)
                             {
