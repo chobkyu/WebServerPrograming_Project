@@ -15,13 +15,6 @@ a{
     text-decoration: none;
 }
 
-.prontbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2f4b77;
-    padding: 10px 12px;
-}
 
 .bar_logo{
     font-size: 24px;
@@ -43,8 +36,6 @@ a{
     background-color: #d49466;
     border-radius:4px;
 }
-
-    
 .bj{/**이게 뭐죠?? 06-01*/
     display: block;
     margin-bottom:3px;
@@ -59,25 +50,6 @@ a{
     border-color : transparent;
     color : white;
 }
-
-.webcam{
-    width: 100%;
-    height: 100%;
-}
-
-.bjtest{
-    width: 80%;
-    height: 100%;
-}
-
-.chat_iframe{
-    width: 20%;
-    height: 100%;
-}
-
-
-/*****body야 너는 왜 여기있니 위에 있던 body 삭제함********/
-
 
 hr{
     margin-bottom: 27px;

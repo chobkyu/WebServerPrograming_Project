@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="bj.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
@@ -14,12 +14,6 @@
         <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
         <!-- 최신버전 Alpha를 이용하고 싶다면 아래 스크립트를 사용 -->
          <!--<script src="https://cdn.jsdelivr.net/npm/hls.js@alpha"></script>--> 
-         <style>
-            video{
-              transform: rotateY(180deg);
-              -webkit-transform:rotateY(180deg); /* Safari and Chrome */
-            }
-        </style>
 
     </head>
     <?php
@@ -173,41 +167,36 @@
   
 
     <body>
-        <div>
-                <nav class="prontbar">
-                    <div class="bar_logo">
-                        <a href="index.php">WebServerProject</a>
-                    </div>
-    
-                </nav>    
+    <div class="test_all">
+       <!-- <nav class="prontbar">
+            <a href="index.php">WebServerProject</a>
+        </nav>-->
 
-             
-        
-        </div>
-
-        <content>
-            <div class ="webcam">
-                <video class="bjtest" id="myVideo" controls autoplay>
-                    브라우저가 video 태그를 지원하지 않습니다.
-                </video>
-                
-                <iframe class="chat_iframe"src="chat.php?seq=<?=$seq?>" width="320" height="670"></iframe>
-
+        <div class="all_webcam">
+            <div class="webcam">
+                <div class="bjtest">
+                    <video id="myVideo" autoplay controls="false">
+                        브라우저가 video 태그를 지원하지 않습니다.
+                    </video>
+                </div>
+                <div class="chat_iframe">
+                    <iframe src="chat.php?seq=<?=$seq?>"></iframe>
+                </div>
             </div>
-            <div class = "info">
-                <h1><?=$broadName?></h1>
-                <h4><?=$userId?></h4> 
-                
-                <input type=button id = "cam" value="캠 정지" onclick="{onoffVideo()}">
-                <input type=button id = "audio" value="오디오 정지" onclick="{onoffAudio()}">
-                <input type=button id = "stop" value="방송 종료" onclick="{offbroad()}">
-            </div>
+            <div class="info">
+                <h1>
+                    <?=$broadName?>
+                </h1>
+                <h4>
+                    <?=$userId?>
+                </h4>
 
-           
-        </content>
-        <div align-left backgroudColor="blue">
-            
+                <input type=button id="cam" value="캠 정지" onclick="{onoffVideo()}">
+                <input type=button id="audio" value="오디오 정지" onclick="{onoffAudio()}">
+                <input type=button id="stop" value="방송 종료" onclick="{offbroad()}">
+            </div>
         </div>
+    </div>
         
 
         <script src="Webcam.js"></script>

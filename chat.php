@@ -40,17 +40,6 @@ y축 스크롤은 자동. 이 태그는 demo라는 아이디 값을 가짐. -->
 <div class="input"><!-- input라는 이름의 클래스를 가진 div태그 시작 -->
  <div id="demo3"><!-- demo3라는 이름의 아이디를 가진 div태그 시작 -->
  </div><!-- demo3라는 이름의 아이디를 가진 div태그 닫기 -->
- 닉네임 : <p><?=$id?></p>
- <!--<input type="text"id="user" name="nickname" onkeyup="nickname(this.value)" value="<?=$id?>" 
- placeholder="아이디를 입력하세요" maxlength="30">-->
- <!-- 입력란에 키를 놓을 때 nickname()함수를 실행. 공란이면 가명을 입력하라는 안내 문구가 떠 있는다.-->
- <br>
-  <!--비밀번호 : 
-  <input type="password" style="border:1px solid; padding:5px; 
-  border-radius:5px;" id="id1" name="password" onkeyup="password(this.value)" 
-  placeholder="4~10자리 입력하시오" maxlength="10">---06-12 01:37분 문제 없음 확인---->
-
-  <!-- 비밀번호 형식. password라는 이름을 부여. 입력란에 키를 놓을 때 password()함수를 실행.-->
  <div class="emoticon">
  <!-- emoticon이라는 이름의 클래스를 가진 div태그 시작. 너비는 20px. -->
  <img src='https://ifh.cc/g/ZW70cS.jpg' style='width:20px; height:20px;'>
@@ -126,10 +115,6 @@ function myTimer() {//myTimer()함수
 			  .replace(/\(좋음\)/g,"<img src='https://ifh.cc/g/a9KaPj.png' style='width:40px; height:40px;'>")
 			  .replace(/\(애교\)/g,"<img src='https://ifh.cc/g/tdwYsZ.png' style='width:40px; height:40px;'>")
 	    	  .replace(/\r\n/g,"<br>")
-	    	  //방명록에 남길 내용에 담긴 띄어쓰기 값은 &nbps로, <는 &lt로, >는 &gt로, \n 및 \r\n은 <br>로,
-	    	  /*+"<button style='float:right;' onclick='new textdelete("
-	    			  +'\"'+myObj[x].num+'\"'+","
-	    			  +'\"'+myObj[x].chatpassword+'\"'+")'>삭제</button>"+"<br>"*/ //06-12 01:18분 삭제 확인.
 					  +"<br>" //06-12 01:18분 확인
 	    			  //삭제 버튼을 추가해준다. 버튼 클릭시 textdelete(num,password)함수를 실행시키며, myObj[x]에 담긴 번호와 비밀번호를 전달한다.
 	    			  //삭제 버튼 추가 후 줄바꿈을 해준다.
@@ -180,20 +165,6 @@ function nickname(user) { //nickname(user) 함수
 	//user라는 아이디 값을 가진 요소의 값은 +는 ＋로, #은 ＃로, &는 ＆로, =은 ＝로 교체된다.
 }
 
-/*function password(pw) { //password(pw) 함수
-	document.getElementById("id1").value=document.getElementById("id1").value
-	.replace("+","＋").replace(/#/g,"＃").replace(/&/g,"＆").replace(/=/g,"＝")
-	.replace(/\\/g,"＼");
-	//id1라는 아이디 값을 가진 요소의 값은 +는 ＋로, #은 ＃로, &는 ＆로, =은 ＝로 교체된다
-	if(pw.length>=4) {//pw 값의 길이가 4보다 크거나 같다면
-			 document.getElementById("demo3").innerHTML = ""; 
-	//demo3 아이디 값을 가진 html 콘텐츠 값은 빈 값으로 교체된다.
-		} else { //pw 값의 길이가 4보다 작다면
-			document.getElementById("demo3").innerHTML = "비밀번호를 4자리 이상 입력하세요.";
-			//demo3 아이디 값을 가진 html 콘텐츠 값은 비밀번호를 4자리 이상 입력하라는 값으로 교체된다.
-		}
-	}*/ //06-12 01:25분 문제 없음 확인
-	
 function test() { //test() 함수
 	height = document.getElementById("demo").scrollTop;
 	//height는 demo 아이디 값을 가진 요소의 스크롤 탑 값을 가진다.
@@ -203,29 +174,6 @@ function test() { //test() 함수
 	//height3는 demo 아이디 값을 가진 요소의 (스크롤 높이 - 스크롤 탑)의 값을 가진다.
 }
 
-/*function textdelete(num, password) { //textdelete(num, password) 함수
-	  var obj, dbParam, xmlhttp; //obj, dbParam, xmlhttp 라는 이름을 지닌 변수
-	  obj = {"table":"tableforchat","num":num,"chatpassword":document
-			  .getElementById("id1").value};
-		//obj에 자바스크립트 객체 값을 저장함
-	  dbParam = JSON.stringify(obj); //dbParam에 obj에 담긴 자바스크립트 객체의 값을 JSON형식의 문자열로 저장함.
-	  xmlhttp = new XMLHttpRequest(); //서버에 데이터를 요청한 값을 xmlhttp변수에 저장함
-	  if (password == document.getElementById("id1").value) {
-		  //password와 id1이라는 아이디를 가진 요소의 값이 같다면
-		  xmlhttp.open("GET", "json_demo_db3.php?content=" + dbParam, true);
-		//요청 유형을 지정한다.(get방식, url, 비동기 방식)
-		  xmlhttp.send(); //서버에 요청을 보낸다.
-	  } else { //password와 id1이라는 아이디를 가진 요소의 값이 같지 않다면
-		  alert("비밀번호가 틀렸습니다.");
-		  //비밀번호가 틀렸다는 경고문이 뜬다.
-	  }
-}*/// 22-06-12 01:16분 확인 1번째 문제 없음.
-
-
-/*function myFunction(){
-	var colorCode= "#" +Math.round(Math.random() *0xffffff).toString(16);
-	document.getElementById('idcolor').style.color= colorCode;
-} 몰라 해결 못해*/
 
 function apply() { //apply() 함수
 	  //var x = document.getElementById("id1").value; //06-12 01:33분 문제 없음 확인
@@ -278,12 +226,11 @@ function apply() { //apply() 함수
 	}
 	
 function replace() { //replace() 함수
-
 	document.getElementById("id2").value=document.getElementById("id2").value
 	.replace("+","＋").replace(/#/g,"＃").replace(/&/g,"＆").replace(/=/g,"＝")
 	.replace(/\\/g,"＼");
 	//id2라는 아이디 값을 가진 요소의 값은 +는 ＋로, #은 ＃로, &는 ＆로, =은 ＝로,\는 ＼로 교체된다.
-}
+} 
 </script> <!-- script 태그 닫기 -->
 </body> <!-- body 태그 닫기 -->
 </html> <!-- html 태그 닫기 -->
