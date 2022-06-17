@@ -3,6 +3,7 @@
     $userId = $_SESSION['userId'];
     $cardPw = $_POST['cardPw'];
     $cost = $_POST['textInput'];
+    $seq = $_SESSION['seq'];
 
     $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
     $sql = "select * from card where userId='$userId'";
@@ -84,7 +85,7 @@
         echo(" 
         <script> 
         window.alert('결제되었습니다!') 
-        location.href='shootBalloon.php'
+        location.href='shootBalloon.php?seq=$seq'
         </script>
         ");
     }
