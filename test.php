@@ -144,15 +144,21 @@
             <?php
                 $seq = $_GET["seq"];
                 $userId =$_GET['userId'];
+                
+                $id = $_SESSION['userId'];
             ?>
             var seq = <?=$seq?>;
             var userId = '<?=$userId?>';
+            var id = '<?=$id?>';
+
+            if(userId!=id){
+                alert("권한이 없습니다");
+                return false;
+            }
+            else{
+                location.href = "endBroad.php?seq="+seq+"&userId="+userId;
+            }
             
-            //채팅 기능 구현시 해당 방의 채팅도 모두 삭제 해야함
-            
-            location.href = "endBroad.php?seq="+seq+"&userId="+userId;
-                    
-                
         }        
     
         /*

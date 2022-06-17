@@ -3,23 +3,9 @@
     session_start();
     $userId = $_SESSION['userId'];
     $id = $_GET['userId'];
+    
 
-    if($id != $userId){
-        echo "
-            <script>
-                
-                alert('권한이 없습니다');
-                return false;
-            </script>
 
-        ";
-    }
-
-    echo "
-        <script>
-            alert(\"방송을 종료합니다\");
-        </script>
-    ";
     
     //채팅지우기
     $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
@@ -33,12 +19,13 @@
     
     
     //추천수 합치기
-    
+    $seq = $_GET['seq'];
     
     $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
 	$sql = "select * from broadCast where seq= $seq";
 	$result = mysqli_query($con, $sql); 
 	$row = mysqli_fetch_array($result);
+
 	$recommend = $row['recommend'];
     
     
@@ -50,6 +37,7 @@
    
     $sql1 = "update member set recommend =  $memberRecommend where UserId= '$id'";
     mysqli_query($con, $sql1);
+
      //방송 데이터 삭제
     $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
     $sql = "delete from broadCast where seq = $seq";
@@ -57,7 +45,7 @@
    
     echo "
         <script>
-            location.href = 'index.php';
+            //location.href = 'index.php';
         </script>
     ";
 ?>
