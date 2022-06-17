@@ -65,39 +65,80 @@
             <tbody>
 
                 <?php
-                $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
-                $sql = "select * from qna"; 
-                $result = mysqli_query($con, $sql);
-                $total_rows = mysqli_num_rows($result);
-
-                $i=1;
-                while($i<=$total_rows){
+                ini_set('display_errors', '0');
+                $option = $_GET['option'];
+                if($option == null){
                     $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
-                    $sql1 = "select seq, title, userId, time from qna where seq = '$i'";
-                    $result1 = mysqli_query($con, $sql1);
-                    $row = mysqli_fetch_array($result1);
-                    $seq = $row["seq"];
-                    $title = $row["title"];
-                    $userId = $row["userId"];
-                    $time = $row["time"];
+                    $sql = "select * from qna"; 
+                    $result = mysqli_query($con, $sql);
+                    $total_rows = mysqli_num_rows($result);
 
-                    mysqli_close($con);
+                    $i=1;
+                    while($i<=$total_rows){
+                        $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                        $sql1 = "select seq, title, userId, time from qna where seq = '$i'";
+                        $result1 = mysqli_query($con, $sql1);
+                        $row = mysqli_fetch_array($result1);
+                        $seq = $row["seq"];
+                        $title = $row["title"];
+                        $userId = $row["userId"];
+                        $time = $row["time"];
 
-                    echo "
-                        <script>
-                            function QnARead(seq){
-                                var seq =seq;
-                                location.href = \"QnA_view.php?seq=\"+seq;
-                            }
-                        </script>
-                        <tr>
-                            <td>$seq</td>
-                            <td onclick = \"QnARead($seq)\">$title</a></td>
-                            <td>$userId</td>
-                            <td>$time</td>    
-                        </tr>
-                    ";
-                    $i++;
+                        mysqli_close($con);
+
+                        echo "
+                            <script>
+                                function QnARead(seq){
+                                    var seq =seq;
+                                    location.href = \"QnA_view.php?seq=\"+seq;
+                                }
+                            </script>
+                            <tr>
+                                <td>$seq</td>
+                                <td onclick = \"QnARead($seq)\">$title</a></td>
+                                <td>$userId</td>
+                                <td>$time</td>    
+                            </tr>
+                        ";
+                        $i++;
+                    }
+                }
+
+                if($option=="search"){
+                    $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                    $sql = "select * from qna"; 
+                    $result = mysqli_query($con, $sql);
+                    $total_rows = mysqli_num_rows($result);
+
+                    $i=1;
+                    while($i<=$total_rows){
+                        $con = mysqli_connect("database-1.c9g35ixldt8h.ap-northeast-2.rds.amazonaws.com", "admin", "00000000", "project");
+                        $sql1 = "select seq, title, userId, time from qna where seq = '$i'";
+                        $result1 = mysqli_query($con, $sql1);
+                        $row = mysqli_fetch_array($result1);
+                        $seq = $row["seq"];
+                        $title = $row["title"];
+                        $userId = $row["userId"];
+                        $time = $row["time"];
+
+                        mysqli_close($con);
+
+                        echo "
+                            <script>
+                                function QnARead(seq){
+                                    var seq =seq;
+                                    location.href = \"QnA_view.php?seq=\"+seq;
+                                }
+                            </script>
+                            <tr>
+                                <td>$seq</td>
+                                <td onclick = \"QnARead($seq)\">$title</a></td>
+                                <td>$userId</td>
+                                <td>$time</td>    
+                            </tr>
+                        ";
+                        $i++;
+                    }
                 }
              ?>
                 

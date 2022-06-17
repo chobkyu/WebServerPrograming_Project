@@ -34,8 +34,7 @@
         var myVideoStream = document.getElementById('myVideo')     // make it a global variable
         var camCode = 0;
         var audioCode = 0;
-        var videoBool = 1;
-        var audioBool = 1;
+       
         
         function getVideo(){
             navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
@@ -56,31 +55,21 @@
         }
 
         getVideo(); //방송 바로 시작
-
+        
         function breakVideo(){  //캠 끄기
             navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-            if(camCode==0){
-                videoBool = 1;
-                camCode = 1;
+           
+            if(audioCode==false&&camCode==false){
+                alert('오디오와 비디오 중 하나는 켜져 있어야 합니다');
+                return false;
             }
-            else{
-                videoBool = 0;
-                camCode = 0;
-            }
-
-            if(audioCode==0){
-                audioBool = 0;
-            }
-            else{
-                audioBool = 1;
-            }
-
-            navigator.getMedia({video: videoBool, audio: audioBool},
+            
+            navigator.getMedia({video: false, audio:true},
                                     
                 function(stream) {
                     myVideoStream.srcObject = stream   
                     myVideoStream.remove;
-                                        
+                   
                 }, 
                                     
                 function(error) {
@@ -91,28 +80,18 @@
         function breakAudio(){  //오디오 끄기
             navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
             
-            if(audioCode==0){
-                audioBool = 1;
-                audioCode = 1;
+            if(camCode==false&&camCode==false){
+                alert('오디오와 비디오 중 하나는 켜져 있어야 합니다');
+                return false;
             }
-            else{
-                audioBool = 0;
-                audioCode = 0;
-            }
-
-            if(camCode==0){
-                videoBool = 0;
-            }
-            else{
-                videoBool = 1;
-            }
-
-            navigator.getMedia({video: videoBool, audio: audioBool},  
+            
+            
+            navigator.getMedia({video: true, audio: false},  
                             
             function(stream) {
                 myVideoStream.srcObject = stream   
                 myVideoStream.play();
-                
+               
             }, 
                             
             function(error) {
@@ -122,22 +101,30 @@
 
         //비디오 오디오 껐다켰다 하기
         function onoffVideo(){
-            breakVideo();  
+            
             if(camCode==0){
-                document.getElementById("cam").value = "캠 켜기";
+                getVideo();  
+                document.getElementById("cam").value = "캠 끄기";
+                camCode=1;
             }
             else{
-                document.getElementById("cam").value = "캠 끄기";
+                breakVideo();
+                document.getElementById("cam").value = "캠 켜기";
+                camCode=0;
             }
         }
 
         function onoffAudio(){
             breakAudio();
             if(audioCode==0){
-                document.getElementById("audio").value = "오디오 시작";
+                getVideo();
+                document.getElementById("audio").value = "오디오 정지";
+                audioCode=1;
             }
             else{
-                document.getElementById("audio").value = "오디오 정지";
+                breakAudio();
+                document.getElementById("audio").value = "오디오 켜기";
+                audioCode=0;
             }
         }
 
