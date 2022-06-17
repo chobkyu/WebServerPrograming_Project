@@ -61,9 +61,6 @@ y축 스크롤은 자동. 이 태그는 demo라는 아이디 값을 가짐. -->
  <div style="float:left;" title="(애교)" onclick="add('(애교)')">
  <img src='https://ifh.cc/g/tdwYsZ.png' style='width:20px; height:20px;'>
  </div>
- <div style="float:left;" title="(1771249)" onclick="add('(1771249)')">
- <img src='img/Balloon.PNG' style='width:30px; height:50px;'>
- </div>
 
  </div><!-- dropdown-content라는 이름의 클래스를 가진 div태그 닫기. -->
  </div><!-- emoticon이라는 이름의 클래스를 가진 div태그 닫기. -->
