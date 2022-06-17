@@ -26,6 +26,20 @@
 
 <?php
     ini_set( 'display_errors', '0' );
+
+    session_start();
+    $id = $_SESSION['userId'];
+    $log;
+    $class;
+
+    if($id == null){
+        $log = "로그인";
+        $class = "login.php";
+    }
+    else{
+        $log = "로그아웃";
+        $class = "logout.php";
+    }
 ?>
 <body>
     <div id="wrap">
@@ -41,9 +55,9 @@
         </div>
         <ul class="serviceUtil">
             <li><a href="BjStart.php"><i class="fa-solid fa-headset"></i></a></li>
-            <li><a href="login.php">로그인</a></li>
+            <li><a href="<?=$class?>"><?=$log?></a></li>
             <li onclick="location.href='myPage.php'"><i class="fa-solid fa-list-ul"></i></li>
-            <li><a href="logout.php">로그아웃</a></li>
+            <!--<li><a href="logout.php">로그아웃</a></li>-->
         </ul>
         </header>
 
