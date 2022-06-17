@@ -1,6 +1,5 @@
 /******test.php*******/
 body{
-    margin:0px;
     height: 100%;
     width:100%;}
 
@@ -53,6 +52,12 @@ body{
     position: absolute;
     width: 100%;
     height: 100%;
+}
+
+/*****************/
+#bjVideo{
+    width:100%;
+    height:100%;
 }
 
 

@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="bj.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
@@ -36,41 +36,15 @@
     ?>
 
     <body>
-        <div>
-                <nav class="prontbar">
-                    <div class="bar_logo">
-                        <a href="index.html">WebServerProject</a>
-                    </div>
-        
-                
-        
-                    <div class="Login_menu"> 
-                        <p onclick = "logFind()">login</p>
-                    </div>
-                </nav>    
-
-             
-        
-        </div>
-
-        <content>
-            <div class ="webcam" style="position:absolute; top : -80px; left:0px bottom : -100px;">
-                <iframe src = "test.php?userId=<?=$userId?>&broadName=<?=$broadName?>&seq=<?=$seq?>" id="bjVideo" scrolling ="no" width="1700" height="1230">
+        <div class="all_webcam">
+            <div class ="webcam">
+                <iframe src = "test.php?userId=<?=$userId?>&broadName=<?=$broadName?>&seq=<?=$seq?>" id="bjVideo" scrolling ="no">
                     브라우저가 video 태그를 지원하지 않습니다.
                 </iframe>
                 
                 <!--<iframe src="http://www.mk.co.kr" width="320" height="670"></iframe>-->
-
             </div>
-
-
-           
-        </content>
-        <div align-left backgroudColor="blue">
-            
         </div>
-        
-
         <script src="Webcam.js"></script>
         
     </body>
