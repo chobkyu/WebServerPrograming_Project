@@ -32,7 +32,7 @@
             <div class="int-area">
                 <h3 type="text" name="cost" id="cost"
                 autocomplete="off" required>카드 비밀번호</h3>
-                <input type="text" name="cardPw" id="cardPw"/>
+                <input type="password" name="cardPw" id="cardPw"/>
             </div>
             <div class="int-area">
                 <h3 type="text" name="cost" id="cost"

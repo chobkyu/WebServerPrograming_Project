@@ -47,10 +47,6 @@
                     <option value="10000">10000</option>
                 </select>
             </div>
-            <div class="int-area">
-                <h3 type="text" name="info" id="info"
-                autocomplete="off" required>seq : <?= $seq?></h3>
-            </div>
            <div class="btn-area">
                <button id="shoot" type="submit">쏘기</button>
            </div>
