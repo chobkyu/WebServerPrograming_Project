@@ -12,7 +12,6 @@
 <script
      src="https://kit.fontawesome.com/af4e1eff79.js"
      crossorigin="anonymous"></script>
-
 </head>
 
 <script>
@@ -34,7 +33,6 @@
     <footer class="back_color2"></footer><!---3.23-->
     <ul class="bar_menu">
     <li class="bar_logo">
-            <i class="fa-solid fa-car-crash"></i>
             <a href="index.php"><b>BugiTV</b></a>
         </li>
         <li><a href="rank.php">Ranking</a></li>

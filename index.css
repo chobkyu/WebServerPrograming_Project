@@ -157,6 +157,7 @@ li, ul{
     background-color: #ffffff;
     border-radius: 10px 10px;
     margin-bottom: 20px;
+    padding:20px;
 }
 .input_board{
     padding: 10px 20px;
@@ -170,10 +171,6 @@ li, ul{
     box-sizing: border-box;
 }
 
-.input_board{
-    padding: 10px 20px;
-    box-sizing: border-box;
-}
 .input_part{
     display: flex;
     flex-flow: row nowrap;
@@ -182,7 +179,7 @@ li, ul{
     box-sizing: border-box;
 }
 .input_part p:nth-child(1){
-    font-family: 'NanumSquareR';
+    font-family:'NanumSquareR';
     font-size: 15px;
     width: 130px;
     box-sizing: border-box;
@@ -190,7 +187,7 @@ li, ul{
     margin-right: 20px;
 }
 .input_plus{
-    width: calc(100% - 150px);
+    width: calc(100% - 10px);
     display: flex;
     flex-flow: column nowrap;
 }
@@ -198,14 +195,16 @@ li, ul{
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
+    margin:0px;
     margin-bottom: 20px;
 }
+
 .input_part_right{
-    width: 80%;
+    width: calc(100% - 150px);
     display: flex;
     flex-flow: row wrap;
     box-sizing: border-box;
-    margin-right: 10px;
+    margin-left:20px;
 }
 .inp_default input{
     width: 100%;
@@ -219,6 +218,14 @@ li, ul{
     margin-right: 10px;
     box-sizing: border-box;
 }
+
+.inp_btn{
+    position: relative;
+    width:20%;
+    top:40px;
+    left:-83%;
+}
+
 .plus_btn{
     width: 30px;
 }
@@ -240,12 +247,11 @@ li, ul{
     box-sizing: border-box;
 }
 
-.photo_zone{
-    min-height: 150px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    padding: 0 10px;
+#photo_zone{
     box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    border:1px solid #ccc;
 }
 .radio_zone{
     display: flex;
@@ -269,6 +275,10 @@ li, ul{
     margin-bottom: 20px;
 }
 
+.bjcontent{
+    width: 100%;
+}
+
 
 select {
     width:300px;
@@ -283,16 +293,21 @@ select {
 
 .btn{
     display: block;
+    background-color: #ffffff;
     width: 80px;
     height: 40px;
+    margin:auto;
     font-size: 14px;
     line-height: 40px;
     text-align: center;
     box-sizing: border-box;
-    font-family: 'NanumSquareR';
     border-radius: 5px;
     margin-right: 5px;
     cursor: pointer;
+}
+.btn:hover{
+    color:#ffff;
+    background: #000;
 }
 /*******************index page*********************/
 
